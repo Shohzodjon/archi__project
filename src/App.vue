@@ -1,4 +1,6 @@
 <script setup>
+import { RouterView } from 'vue-router';
+import { Transition } from 'vue';
 import Navbar from './sections/Navbar.vue';
 import Footer from './sections/Footer.vue';
 import ResultCard from './components/ResultCard.vue';
@@ -12,14 +14,20 @@ import news2 from './assets/images/news2.png'
 import NewsCard from './components/NewsCard.vue';
 import MainCard from './components/MainCard.vue';
 import ProjectCard from './components/ProjectCard.vue';
+import Implementation from './components/Implementation.vue';
 
 </script>
 
 <template>
-  <section class="bg-blue-900 pb-20">
+  <section>
     <Navbar />
+    <RouterView v-slot="{ Component }">
+      <Transition name="fade" mode="out-in">
+        <component :is="Component" />
+      </Transition>
+    </RouterView>
     <Footer />
-    <ResultCard result_content="765+" result_category="УСТАНОВКИ" />
+    <!-- <ResultCard result_content="765+" result_category="УСТАНОВКИ" />
     <SectionHeader header__content="Новости и события"
       header__desc="Следите за нашими новостями и будьте в курсе наших специальных предложений и последних тенденций использования солнечных энергии в Ташкент и в других регионах страны." />
     <OfferCard card_header="Проектирование и инжиниринг"
@@ -36,7 +44,19 @@ import ProjectCard from './components/ProjectCard.vue';
       main_card_desc="Комплексные решения в области солнечной энергетики для бизнеса станут отличным способом, позволяющим экономить на электроэнергии"
       main_card_button="Для бизнеса" />
     <ProjectCard content="Государственное налоговое управление" desc="Установка солнечных панелей" :img_url="news1" />
-
+    <Implementation :proccess_step="1" proccess_title="СТРОИТЕЛЬСТВО СЭС"
+      proccess_desc="Поставщик строит солнечную электростанцию и синхронизирует работу с дизельной электростанцией" /> -->
   </section>
 </template>
-<style scoped></style>
+
+<style>
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0.2;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease-out;
+}
+</style>

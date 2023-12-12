@@ -1,5 +1,6 @@
 <script setup>
-import { RouterLink } from "vue-router";
+import { RouterLink, useRoute } from "vue-router";
+import {ref, computed} from 'vue';
 import Telegram from "../assets/icons/Telegram.vue";
 import Facebook from "../assets/icons/Facebook.vue";
 import Instagram from "../assets/icons/Instagram.vue";
@@ -8,9 +9,12 @@ import Envelop from "../assets/icons/Envelop.vue";
 import logo from "../assets/images/logo.png";
 import BaseButton from "../components/BaseButton.vue";
 import Arrow from "../assets/icons/Arrow.vue";
+
+
+
 </script>
 <template>
-  <nav>
+  <nav class="fixed top-0 left-0 right-0 w-full z-[999]">
     <div class="bg-blue-800">
       <div class="container">
         <div class="flex items-center justify-between py-[13px]">
