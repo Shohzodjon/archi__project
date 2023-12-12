@@ -23,22 +23,13 @@ const props = defineProps({
                 </div>
                 <h3 class="mt-20 text-[32px] leading-[41.6px] font-bold font-gilroy-medium text-grey-900 mb-2">{{ props.main_card_title }}</h3>
                 <p class="text-grey-500 text-[18px] leading-[27px] font-medium mb-6" >{{ props.main_card_desc }}</p>
-                <BaseButton :content="props.main_card_button" class="border-[2px] border-blue-500 text-blue-500 px-[53px]">
+                <BaseButton :content="props.main_card_button" class="border-[2px] border-blue-500 text-blue-500 px-[53px] main__card__button">
                     <Arrow />
                 </BaseButton>
             </div>
         </div>
     </div>
 </template>
-<!-- 
-color: #536681;
-
-font-family: Gilroy;
-font-size: 18px;
-font-style: normal;
-font-weight: 500;
-line-height: 150%; /* 27px */
- -->
 <style scoped>
 .main__card::before {
     content: " ";
@@ -54,5 +45,11 @@ line-height: 150%; /* 27px */
 .small__img__wrapper {
     border-radius: 2px;
     background: linear-gradient(180deg, #3588FE 0%, #1F76F1 100%);
+}
+
+</style>
+<style>
+.main__card__button svg path{
+    fill: #3689FF;
 }
 </style>
