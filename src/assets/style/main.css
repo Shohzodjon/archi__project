@@ -1,0 +1,15 @@
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  font-family: 'Gilroy-Regular', sans-serif;
+}
+
+.container{
+    max-width: 1720px;
+    margin: 0 auto;
+    
+}
+                
