@@ -23,8 +23,6 @@ import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 
-
-
 //  variables
 const modules = [Navigation, Autoplay, A11y];
 

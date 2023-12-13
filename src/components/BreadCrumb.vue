@@ -7,21 +7,7 @@ const props=defineProps({
 const navigateTo=(route)=>{
     console.log('Navigating to:', route);
 }
-//   export default {
-//     props: {
-//       items: {
-//         type: Array,
-//         required: true
-//       }
-//     },
-//     methods: {
-//       navigateTo(route) {
-//         // Handle navigation to the provided route
-//         // You can use Vue Router or any other method here
-//         console.log('Navigating to:', route);
-//       }
-//     }
-//   };
+
   </script>
 <template>
     <nav aria-label="breadcrumb">

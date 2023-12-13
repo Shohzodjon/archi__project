@@ -93,7 +93,7 @@ import Arrow from "../assets/icons/Arrow.vue";
           <ul class="flex items-center gap-10">
             <li>
               <RouterLink
-                to="/"
+                to="/buisness"
                 class="text-white-900 text-[18px] leading-[23.4px] font-medium font-gilroy-medium"
                 >Для бизнеса</RouterLink
               >

@@ -8,6 +8,7 @@ export default {
       "blue-700": "#154FA1",
       "blue-500": "#3689FF",
       "white-900": "#fff",
+      "white-800":"rgba(255,255,255,0.8)",
       "grey-900": "#031D41",
       "grey-500": "#536681",
       "grey-200": "#C5C9D6",
