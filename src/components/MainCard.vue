@@ -8,12 +8,11 @@ const props = defineProps({
     main_card_title: String,
     main_card_desc: String,
     main_small_img: String,
-    main_card_button: String
 })
 
 </script>
 <template>
-    <div class="mt-20 main__card relative max-w-[848px] max-h-[650px]">
+    <div class="mt-20 main__card relative max-w-[848px] max-h-[650px] rounded overflow-hidden">
         <img :src="props.main_card_img" alt="main-card-img" class="w-full h-[650px]" />
         <div class="absolute z-50 left-8 right-8 bottom-8 bg-white-900 rounded-sm">
             <div class="relative w-full h-full pl-8 pr-8 pb-8 rounded-sm pt-[1px]">
@@ -23,7 +22,7 @@ const props = defineProps({
                 </div>
                 <h3 class="mt-20 text-[32px] leading-[41.6px] font-bold font-gilroy-medium text-grey-900 mb-2">{{ props.main_card_title }}</h3>
                 <p class="text-grey-500 text-[18px] leading-[27px] font-medium mb-6" >{{ props.main_card_desc }}</p>
-                <BaseButton :content="props.main_card_button" class="border-[2px] border-blue-500 text-blue-500 px-[53px] main__card__button">
+                <BaseButton :content="props.main_card_title" class="border-[2px] border-blue-500 text-blue-500 px-[53px] main__card__button">
                     <Arrow />
                 </BaseButton>
             </div>

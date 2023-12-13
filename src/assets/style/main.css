@@ -9,7 +9,11 @@
 
 .container{
     max-width: 1720px;
-    margin: 0 auto;
-    
+    margin: 0 auto; 
 }
                 
+@media screen and (min-width:350px) and (max-width:1719px) {
+  .container{
+    padding: 0 15px;
+  }
+}

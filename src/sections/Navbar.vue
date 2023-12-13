@@ -83,8 +83,8 @@ import Arrow from "../assets/icons/Arrow.vue";
       </div>
     </div>
     <!-- navbar header -->
-    <div class="bg-blue-700">
-      <div class="container py-7">
+    <div class="bg-blue-700 py-7">
+      <div class="container">
         <div class="flex items-center justify-between">
           <RouterLink to="/"
             ><img :src="logo" alt="logo img" class="max-w-[156.6px] max-h-12"

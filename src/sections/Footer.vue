@@ -15,7 +15,7 @@ import Instagram from "../assets/icons/Instagram.vue";
     <footer class="bg-blue-900 pt-[60px] pb-5">
         <div class="container">
             <div class="flex justify-between ">
-                <ul class="mr-[224px]">
+                <ul class="">
                     <li class="mb-8">
                         <RouterLink to="/"><img :src="logo" alt="logo img" class="max-w-[156.6px] max-h-[60px]">
                         </RouterLink>
@@ -27,7 +27,7 @@ import Instagram from "../assets/icons/Instagram.vue";
                     </li>
                 </ul>
                 <!-- end of first list -->
-                <ul class="mr-[304px] flex flex-col gap-4">
+                <ul class=" flex flex-col gap-4">
                     <li class="mb-2"><span
                             class=" text-[#BBD0EF] uppercase text-base leading-[20.8px] font-semibold ">разделы</span></li>
                     <li>
@@ -48,7 +48,7 @@ import Instagram from "../assets/icons/Instagram.vue";
                     </li>
                 </ul>
                 <!-- end of rasdeli list -->
-                <ul class="mr-[334px] flex flex-col gap-4 mt-[45px]">
+                <ul class=" flex flex-col gap-4 mt-[45px]">
                     <li>
                         <RouterLink to="/" class="text-[18px] text-white-900 font-medium leading-[23.4px]">Блог</RouterLink>
                     </li>
