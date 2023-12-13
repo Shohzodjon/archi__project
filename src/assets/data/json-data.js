@@ -1,6 +1,10 @@
 import mainCardImg from '@/assets/images/news1.png'
 import city from '@/assets/images/city.png'
 import product1 from '@/assets/images/product.png'
+import news from '@/assets/images/news2.png';
+import partner from '@/assets/images/partner.png';
+import partner2 from '@/assets/images/partner2.png';
+import partner3 from '@/assets/images/partner3.png';
 
 
 export const rateData = [
@@ -82,4 +86,152 @@ export const homeProductData = [
         product_desc: '25 Лет Гарантии'
     }
 
+]
+
+export const homeOfferedCardData = [
+    {
+        card_header: "Organic i'm angel right",
+        card_desc: 'And gave better working want welcome only back. Hit helicopter my slipstream interim feelers. Dogpile launch define this scope. Strategies stand and donuts',
+        img_url: city,
+        id: 1
+    },
+    {
+        card_header: "Downloaded needed",
+        card_desc: "Including underlying interim hurting know let's three. Cross-pollination heads-up accountable land cob another diligence. Idea were slipstream hour you loss like.",
+        img_url: city,
+        id: 2
+    },
+    {
+        card_header: "Organic i'm angel right",
+        card_desc: 'Reinvent criticality leverage accountable window third tentative ask. Re-inventing player-coach managing book revision charts downloaded. Cadence angel.',
+        img_url: city,
+        id: 3
+    },
+    {
+        card_header: "Organic i'm angel right",
+        card_desc: 'Fastworks power can idea native goto. High tiger quick driving right digital. Unpack principles we pushback nor event deploy. Today incompetent world timepoint.',
+        img_url: city,
+        id: 4
+    },
+
+
+]
+
+export const homeProjectData = [
+    {
+        title: "Государственное налоговое управление",
+        desc: "Установка солнечных панелей",
+        id: 1
+    },
+    {
+        title: "Ани Продукт",
+        desc: "Установка солнечных панелей",
+        id: 2
+    },
+    {
+        title: "Ташкент",
+        desc: "Установка солнечных панелей",
+        id: 3
+    },
+    {
+        title: "Налоговый комитет",
+        desc: "Установка солнечных панелей",
+        id: 4
+    },
+    {
+        title: "Налоговый комитет",
+        desc: "Установка солнечных панелей",
+        id: 5
+    },
+    {
+        title: "Налоговый комитет",
+        desc: "Установка солнечных панелей",
+        id: 6
+    },
+]
+
+export const homeNewsData = [
+    {
+        img_url: news,
+        news_date: "15 апреля 2023 г.",
+        news_title: "1 млрд долларов направят на внедрение возобновляемых источников энергии в Ташкенте",
+        news_desc: "На внедрение возобновляемых источников энергии в столице Узбекистана планируется направить 1 млрд долларов, заявил...",
+        id: 1
+    },
+    {
+        img_url: news,
+        news_date: "15 апреля 2023 г.",
+        news_title: "1 млрд долларов направят на внедрение возобновляемых источников энергии в Ташкенте",
+        news_desc: "На внедрение возобновляемых источников энергии в столице Узбекистана планируется направить 1 млрд долларов, заявил...",
+        id: 2
+    },
+    {
+        img_url: news,
+        news_date: "15 апреля 2023 г.",
+        news_title: "1 млрд долларов направят на внедрение возобновляемых источников энергии в Ташкенте",
+        news_desc: "На внедрение возобновляемых источников энергии в столице Узбекистана планируется направить 1 млрд долларов, заявил...",
+        id: 3
+    },
+    {
+        img_url: news,
+        news_date: "15 апреля 2023 г.",
+        news_title: "1 млрд долларов направят на внедрение возобновляемых источников энергии в Ташкенте",
+        news_desc: "На внедрение возобновляемых источников энергии в столице Узбекистана планируется направить 1 млрд долларов, заявил...",
+        id: 4
+    },
+    {
+        img_url: news,
+        news_date: "15 апреля 2023 г.",
+        news_title: "1 млрд долларов направят на внедрение возобновляемых источников энергии в Ташкенте",
+        news_desc: "На внедрение возобновляемых источников энергии в столице Узбекистана планируется направить 1 млрд долларов, заявил...",
+        id: 5
+    }, {
+        img_url: news,
+        news_date: "15 апреля 2023 г.",
+        news_title: "1 млрд долларов направят на внедрение возобновляемых источников энергии в Ташкенте",
+        news_desc: "На внедрение возобновляемых источников энергии в столице Узбекистана планируется направить 1 млрд долларов, заявил...",
+        id: 6
+    }, {
+        img_url: news,
+        news_date: "15 апреля 2023 г.",
+        news_title: "1 млрд долларов направят на внедрение возобновляемых источников энергии в Ташкенте",
+        news_desc: "На внедрение возобновляемых источников энергии в столице Узбекистана планируется направить 1 млрд долларов, заявил...",
+        id: 7
+    }
+
+]
+
+export const partnerData = [
+    {
+        img_url: partner,
+        id: 1
+    },
+    {
+        img_url: partner2,
+        id: 2
+    },
+    {
+        img_url: partner3,
+        id: 3
+    },
+    {
+        img_url: partner,
+        id: 4
+    },
+    {
+        img_url: partner2,
+        id: 5
+    },
+    {
+        img_url: partner3,
+        id: 6
+    },
+    {
+        img_url: partner,
+        id: 7
+    },
+    {
+        img_url: partner2,
+        id: 8
+    },
 ]

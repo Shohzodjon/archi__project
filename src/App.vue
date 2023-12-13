@@ -3,19 +3,13 @@ import { RouterView } from 'vue-router';
 import { Transition } from 'vue';
 import Navbar from './sections/Navbar.vue';
 import Footer from './sections/Footer.vue';
-import ResultCard from './components/ResultCard.vue';
-import SectionHeader from './components/SectionHeader.vue';
-import ProductCard from './components/ProductCard.vue';
-import OfferCard from './components/OfferCard.vue';
-import city from './assets/images/city.png'
-import product from './assets/images/product.png'
-import news1 from './assets/images/news1.png'
-import news2 from './assets/images/news2.png'
-import NewsCard from './components/NewsCard.vue';
-import MainCard from './components/MainCard.vue';
-import ProjectCard from './components/ProjectCard.vue';
-import Implementation from './components/Implementation.vue';
+import BreadCrumb from './components/BreadCrumb.vue';
 
+const breadcrumbs=[
+          { label: 'Category', route: '/category' },
+          // { label: 'Subcategory', route: '/category/subcategory' },
+          { label: 'Current Page', route: '/category' }
+        ]
 </script>
 
 <template>
@@ -27,7 +21,25 @@ import Implementation from './components/Implementation.vue';
       </Transition>
     </RouterView>
     <Footer />
-    <!-- <ResultCard result_content="765+" result_category="УСТАНОВКИ" />
+ <BreadCrumb :items="breadcrumbs"/>
+   
+
+  </section>
+</template>
+
+<style>
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0.2;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease-out;
+}
+</style>
+
+   <!-- <ResultCard result_content="765+" result_category="УСТАНОВКИ" />
     <SectionHeader header__content="Новости и события"
       header__desc="Следите за нашими новостями и будьте в курсе наших специальных предложений и последних тенденций использования солнечных энергии в Ташкент и в других регионах страны." />
     <OfferCard card_header="Проектирование и инжиниринг"
@@ -46,17 +58,3 @@ import Implementation from './components/Implementation.vue';
     <ProjectCard content="Государственное налоговое управление" desc="Установка солнечных панелей" :img_url="news1" />
     <Implementation :proccess_step="1" proccess_title="СТРОИТЕЛЬСТВО СЭС"
       proccess_desc="Поставщик строит солнечную электростанцию и синхронизирует работу с дизельной электростанцией" /> -->
-  </section>
-</template>
-
-<style>
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0.2;
-}
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.2s ease-out;
-}
-</style>
