@@ -185,7 +185,7 @@ const onSubmit=()=>{
                 <SectionHeader header__content="Наши Проекты"
                     header__desc="Компания Archi Holding реализовала свыше 700 проектов общей мощностью 1 ГВт по всем регионам Узбекистана. Мы используем самые современные солнечные батареи, которые обладают исключительной эффективностью и позволяют экономить деньги." />
 
-                <div class="relative mt-10 home__project__slider">
+                <div class="relative mt-10 home__project__slider px-1">
                     <swiper :slides-per-view="4" :space-between="24" :modules="modules" :autoplay="{ delay: 2500 }"
                         :navigation="{
                             nextEl: '.swiper-next',

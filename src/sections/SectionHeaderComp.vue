@@ -16,15 +16,7 @@ const props = defineProps({
         </div>
     </header>
 </template>
-<!-- 
-    color: #FFF;
 
-font-family: Gilroy;
-font-size: 40px;
-font-style: normal;
-font-weight: 700;
-line-height: 130%; /
- -->
 <style scoped>
 header {
     background: url('../assets/images/buisness.png');
