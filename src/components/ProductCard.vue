@@ -7,7 +7,7 @@ const props = defineProps({
     product_title: String,
     product_desc: String,
     addition__class: String,
-    initial_price: Number
+    initial_price: String
 })
 
 </script>

@@ -21,12 +21,3 @@ const props = defineProps({
         </div>
     </div>
 </template>
-<!-- 
-color: #536681;
-
-font-family: Gilroy;
-font-size: 18px;
-font-style: normal;
-font-weight: 500;
-line-height: 150%; /* 27px */
- -->
