@@ -143,7 +143,7 @@ const onSubmit=()=>{
                     header__desc="Солнечные решения от компании Archi Holding - это гарантия качества и эффективности." />
                 <div class="flex items-center gap-6 mt-[90px]">
                     <OfferCard v-for="item in homeOfferedCardData" :key="item.id" :card_header="item.card_header"
-                        :card_desc="item.card_desc" :img_url="item.img_url" />
+                        :card_desc="item.card_desc" :img_url="item.img_url" class="!bg-blue-900" />
                 </div>
             </div>
         </div>

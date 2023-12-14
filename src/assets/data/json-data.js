@@ -236,60 +236,176 @@ export const partnerData = [
     },
 ]
 
-export const implementData=[
+export const implementData = [
     {
-        proccess_step:'1',
-        proccess_title:'СТРОИТЕЛЬСТВО СЭС',
-        proccess_desc:'Поставщик строит солнечную электростанцию и синхронизирует работу с дизельной электростанцией',
-        id:1,
-        last_position:false,
+        proccess_step: '1',
+        proccess_title: 'СТРОИТЕЛЬСТВО СЭС',
+        proccess_desc: 'Поставщик строит солнечную электростанцию и синхронизирует работу с дизельной электростанцией',
+        id: 1,
+        last_position: false,
     },
     {
-        proccess_step:'2',
-        proccess_title:'ЗАКЛЮЧЕНИЕ ДОГОВОРА',
-        proccess_desc:'Поставщик строит солнечную электростанцию и синхронизирует работу с дизельной электростанцией',
-        id:2,
-        last_position:false,
+        proccess_step: '2',
+        proccess_title: 'ЗАКЛЮЧЕНИЕ ДОГОВОРА',
+        proccess_desc: 'Поставщик строит солнечную электростанцию и синхронизирует работу с дизельной электростанцией',
+        id: 2,
+        last_position: false,
     },
     {
-        proccess_step:'3',
-        proccess_title:'ЗАПУСК И ОБСЛУЖИВАНИЕ',
-        proccess_desc:'Поставщик строит солнечную электростанцию и синхронизирует работу с дизельной электростанцией',
-        id:3,
-        last_position:false,
+        proccess_step: '3',
+        proccess_title: 'ЗАПУСК И ОБСЛУЖИВАНИЕ',
+        proccess_desc: 'Поставщик строит солнечную электростанцию и синхронизирует работу с дизельной электростанцией',
+        id: 3,
+        last_position: false,
     }
     , {
-        proccess_step:'4',
-        proccess_title:'ОПЛАТА ЭНЕРГИИ',
-        proccess_desc:'Поставщик строит солнечную электростанцию и синхронизирует работу с дизельной электростанцией',
-        id:4,
-        last_position:true,
+        proccess_step: '4',
+        proccess_title: 'ОПЛАТА ЭНЕРГИИ',
+        proccess_desc: 'Поставщик строит солнечную электростанцию и синхронизирует работу с дизельной электростанцией',
+        id: 4,
+        last_position: true,
     }
 ]
 
-export const buisnessOfferData=[
+export const buisnessOfferData = [
     {
-        img_url:city,
-        card_header:'Проектирование и инжиниринг',
-        card_desc:"Мы оказывает услуги проектирования солнечных электростанций любой мощности, обеспечивая эффективную интеграцию в существующую инфраструктуру.",
-        id:1
+        img_url: city,
+        card_header: 'Проектирование и инжиниринг',
+        card_desc: "Мы оказывает услуги проектирования солнечных электростанций любой мощности, обеспечивая эффективную интеграцию в существующую инфраструктуру.",
+        id: 1
     },
     {
-        img_url:city,
-        card_header:'Проектирование и инжиниринг',
-        card_desc:"Мы оказывает услуги проектирования солнечных электростанций любой мощности, обеспечивая эффективную интеграцию в существующую инфраструктуру.",
-        id:2
+        img_url: city,
+        card_header: 'Проектирование и инжиниринг',
+        card_desc: "Мы оказывает услуги проектирования солнечных электростанций любой мощности, обеспечивая эффективную интеграцию в существующую инфраструктуру.",
+        id: 2
     },
     {
-        img_url:city,
-        card_header:'Проектирование и инжиниринг',
-        card_desc:"Мы оказывает услуги проектирования солнечных электростанций любой мощности, обеспечивая эффективную интеграцию в существующую инфраструктуру.",
-        id:3
+        img_url: city,
+        card_header: 'Проектирование и инжиниринг',
+        card_desc: "Мы оказывает услуги проектирования солнечных электростанций любой мощности, обеспечивая эффективную интеграцию в существующую инфраструктуру.",
+        id: 3
     },
     {
-        img_url:city,
-        card_header:'Проектирование и инжиниринг',
-        card_desc:"Мы оказывает услуги проектирования солнечных электростанций любой мощности, обеспечивая эффективную интеграцию в существующую инфраструктуру.",
-        id:4
+        img_url: city,
+        card_header: 'Проектирование и инжиниринг',
+        card_desc: "Мы оказывает услуги проектирования солнечных электростанций любой мощности, обеспечивая эффективную интеграцию в существующую инфраструктуру.",
+        id: 4
     },
+]
+
+export const categoryData = [
+    {
+        title: 'Все продукты',
+        id: 1,
+    },
+    {
+        title: 'Солнечные панели',
+        id: 2,
+    },
+    {
+        title: 'Инверторы',
+        id: 3,
+    },
+    {
+        title: 'Аккумуляторы',
+        id: 4,
+    },
+    {
+        title: 'Водоногреватели',
+        id: 5,
+    },
+    {
+        title: 'Электромобили',
+        id: 6,
+    },
+]
+
+export const productData = [
+    {
+        img_url: product1,
+        product_title: "Солнечные станция",
+        product_desc: '110 000 000 СУМ',
+        initial_price: '135 000 000 СУМ',
+        id: 1
+    },
+    {
+        img_url: product1,
+        product_title: "Солнечные батарея LS450H",
+        product_desc: '3100 000 СУМ',
+        initial_price: '',
+        id: 2
+    },
+    {
+        img_url: product1,
+        product_title: "Инвертор Солис 1П4К-4Г",
+        product_desc: '11 593 800 СУМ',
+        initial_price: '',
+        id: 3
+    },
+    {
+        img_url: product1,
+        product_title: "Инвертор Солис 1П5К-4Г",
+        product_desc: '11 390 400 СУМ',
+        initial_price: '',
+        id: 4
+    },
+    {
+        img_url: product1,
+        product_title: "Инвертор Солис 1П6К-4Г",
+        product_desc: '110 000 000 СУМ',
+        initial_price: '135 000 000 СУМ',
+        id: 5
+    },
+    {
+        img_url: product1,
+        product_title: "Солнечные станция",
+        product_desc: '110 000 000 СУМ',
+        initial_price: '135 000 000 СУМ',
+        id: 6
+    },
+    {
+        img_url: product1,
+        product_title: "Солнечные станция",
+        product_desc: '110 000 000 СУМ',
+        initial_price: '',
+        id: 7
+    },
+    {
+        img_url: product1,
+        product_title: "Солнечные станция",
+        product_desc: '110 000 000 СУМ',
+        initial_price: '',
+        id: 8
+    },
+    {
+        img_url: product1,
+        product_title: "Солнечные станция",
+        product_desc: '110 000 000 СУМ',
+        initial_price: '',
+        id: 9
+    },
+    {
+        img_url: product1,
+        product_title: "Солнечные станция",
+        product_desc: '110 000 000 СУМ',
+        initial_price: '135 000 000 СУМ',
+        id: 10
+    },
+    {
+        img_url: product1,
+        product_title: "Солнечные станция",
+        product_desc: '110 000 000 СУМ',
+        initial_price: '135 000 000 СУМ',
+        id: 11
+    },
+    {
+        img_url: product1,
+        product_title: "Солнечные станция",
+        product_desc: '110 000 000 СУМ',
+        initial_price: '',
+        id: 12
+    },
+
+
 ]

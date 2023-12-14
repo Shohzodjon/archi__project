@@ -6,16 +6,26 @@ const router = createRouter({
     return { top: 0 };
   },
   routes: [
-     {
-       path: '/',
-       name: 'home',
-       component:HomePage
-     },
-     {
-       path: '/buisness',
-       name: 'buisness',
-       component: () => import("@/pages/BuisnessPage.vue"),
+    {
+      path: '/',
+      name: 'home',
+      component: HomePage
+    },
+    {
+      path: '/buisness',
+      name: 'buisness',
+      component: () => import("@/pages/BuisnessPage.vue"),
+    }, {
+      path: '/individual',
+      name: 'individual',
+      component: () => import('@/pages/IndividualPage.vue')
+    },
+    {
+      path: '/products',
+      name: 'product',
+      component: () => import('@/pages/ProductPage.vue')
     }
+
   ]
 })
 

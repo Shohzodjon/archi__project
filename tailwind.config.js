@@ -26,10 +26,3 @@ export default {
   plugins: [],
 };
 
-/*
-font-family: 'Gilroy-Bold', sans-serif;
-font-family: 'Gilroy-Heavy', sans-serif;
-font-family: 'Gilroy-Light', sans-serif;
-font-family: 'Gilroy-Medium', sans-serif;
-font-family: 'Gilroy-Regular', sans-serif;
-*/
