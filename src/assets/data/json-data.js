@@ -2,6 +2,7 @@ import mainCardImg from '@/assets/images/news1.png'
 import city from '@/assets/images/city.png'
 import product1 from '@/assets/images/product.png'
 import news from '@/assets/images/news2.png';
+import news2 from '@/assets/images/news3.png';
 import partner from '@/assets/images/partner.png';
 import partner2 from '@/assets/images/partner2.png';
 import partner3 from '@/assets/images/partner3.png';
@@ -482,4 +483,85 @@ export const projectData=[
         desc:'Установка солнечных панелей',
         id:1,
     }
+]
+
+export const blogData=[
+    {
+        img_url:news,
+        news_title:'Более 400 млрд сумов направят на установку солнечных панелей в госорганизациях Ташкента',
+        news_desc:'Moscow Solar Group 22-24 июня приглашает всех в Международный форум-выставка RENWEX 2021...',
+        news_date:'15 апреля 2023 г.',
+        id:1
+    },
+    {
+        img_url:news2,
+        news_title:'Более 400 млрд сумов направят на установку солнечных панелей в госорганизациях Ташкента',
+        news_desc:'Moscow Solar Group 22-24 июня приглашает всех в Международный форум-выставка RENWEX 2021...',
+        news_date:'15 апреля 2023 г.',
+        id:2
+    },
+    {
+        img_url:news,
+        news_title:'Более 400 млрд сумов направят на установку солнечных панелей в госорганизациях Ташкента',
+        news_desc:'Moscow Solar Group 22-24 июня приглашает всех в Международный форум-выставка RENWEX 2021...',
+        news_date:'15 апреля 2023 г.',
+        id:3
+    },
+    {
+        img_url:news2,
+        news_title:'Более 400 млрд сумов направят на установку солнечных панелей в госорганизациях Ташкента',
+        news_desc:'Moscow Solar Group 22-24 июня приглашает всех в Международный форум-выставка RENWEX 2021...',
+        news_date:'15 апреля 2023 г.',
+        id:4
+    },
+    {
+        img_url:news2,
+        news_title:'Более 400 млрд сумов направят на установку солнечных панелей в госорганизациях Ташкента',
+        news_desc:'Moscow Solar Group 22-24 июня приглашает всех в Международный форум-выставка RENWEX 2021...',
+        news_date:'15 апреля 2023 г.',
+        id:5
+    },
+    {
+        img_url:news,
+        news_title:'Более 400 млрд сумов направят на установку солнечных панелей в госорганизациях Ташкента',
+        news_desc:'Moscow Solar Group 22-24 июня приглашает всех в Международный форум-выставка RENWEX 2021...',
+        news_date:'15 апреля 2023 г.',
+        id:6
+    },
+    {
+        img_url:news2,
+        news_title:'Более 400 млрд сумов направят на установку солнечных панелей в госорганизациях Ташкента',
+        news_desc:'Moscow Solar Group 22-24 июня приглашает всех в Международный форум-выставка RENWEX 2021...',
+        news_date:'15 апреля 2023 г.',
+        id:7
+    },
+    {
+        img_url:news,
+        news_title:'Более 400 млрд сумов направят на установку солнечных панелей в госорганизациях Ташкента',
+        news_desc:'Moscow Solar Group 22-24 июня приглашает всех в Международный форум-выставка RENWEX 2021...',
+        news_date:'15 апреля 2023 г.',
+        id:8
+    },
+    {
+        img_url:news2,
+        news_title:'Более 400 млрд сумов направят на установку солнечных панелей в госорганизациях Ташкента',
+        news_desc:'Moscow Solar Group 22-24 июня приглашает всех в Международный форум-выставка RENWEX 2021...',
+        news_date:'15 апреля 2023 г.',
+        id:9
+    },
+    {
+        img_url:news,
+        news_title:'Более 400 млрд сумов направят на установку солнечных панелей в госорганизациях Ташкента',
+        news_desc:'Moscow Solar Group 22-24 июня приглашает всех в Международный форум-выставка RENWEX 2021...',
+        news_date:'15 апреля 2023 г.',
+        id:10
+    },
+    {
+        img_url:news2,
+        news_title:'Более 400 млрд сумов направят на установку солнечных панелей в госорганизациях Ташкента',
+        news_desc:'Moscow Solar Group 22-24 июня приглашает всех в Международный форум-выставка RENWEX 2021...',
+        news_date:'15 апреля 2023 г.',
+        id:11
+    }
+
 ]
