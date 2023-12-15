@@ -103,7 +103,7 @@ import Arrow from "../assets/icons/Arrow.vue";
             <li><RouterLink to="/projects" class="text-white-900 text-[18px] leading-[23.4px] font-medium font-gilroy-medium">Проекты</RouterLink></li>
             <li><RouterLink to="/blog" class="text-white-900 text-[18px] leading-[23.4px] font-medium font-gilroy-medium">Блог</RouterLink></li>
             <li><RouterLink to="/company" class="text-white-900 text-[18px] leading-[23.4px] font-medium font-gilroy-medium">О компании</RouterLink></li>
-            <li><RouterLink to="/" class="text-white-900 text-[18px] leading-[23.4px] font-medium font-gilroy-medium">Контакты</RouterLink></li>
+            <li><RouterLink to="/contact" class="text-white-900 text-[18px] leading-[23.4px] font-medium font-gilroy-medium">Контакты</RouterLink></li>
           </ul>
           <!--  end of router link -->
           <BaseButton content="Оставить Заявку" class="nav__btn px-[38px] text-white-900">

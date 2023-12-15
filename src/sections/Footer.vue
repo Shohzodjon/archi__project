@@ -31,33 +31,33 @@ import Instagram from "../assets/icons/Instagram.vue";
                     <li class="mb-2"><span
                             class=" text-[#BBD0EF] uppercase text-base leading-[20.8px] font-semibold ">разделы</span></li>
                     <li>
-                        <RouterLink to="/" class="text-[18px] text-white-900 font-medium leading-[23.4px]">Для бизнеса
+                        <RouterLink to="/buisness" class="text-[18px] text-white-900 font-medium leading-[23.4px]">Для бизнеса
                         </RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="/" class="text-[18px] text-white-900 font-medium leading-[23.4px]">Частным лицам
+                        <RouterLink to="/individual" class="text-[18px] text-white-900 font-medium leading-[23.4px]">Частным лицам
                         </RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="/" class="text-[18px] text-white-900 font-medium leading-[23.4px]">Продукты
+                        <RouterLink to="/products" class="text-[18px] text-white-900 font-medium leading-[23.4px]">Продукты
                         </RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="/" class="text-[18px] text-white-900 font-medium leading-[23.4px]">Проекты
+                        <RouterLink to="/projects" class="text-[18px] text-white-900 font-medium leading-[23.4px]">Проекты
                         </RouterLink>
                     </li>
                 </ul>
                 <!-- end of rasdeli list -->
                 <ul class=" flex flex-col gap-4 mt-[45px]">
                     <li>
-                        <RouterLink to="/" class="text-[18px] text-white-900 font-medium leading-[23.4px]">Блог</RouterLink>
+                        <RouterLink to="/blog" class="text-[18px] text-white-900 font-medium leading-[23.4px]">Блог</RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="/" class="text-[18px] text-white-900 font-medium leading-[23.4px]">О компании
+                        <RouterLink to="/company" class="text-[18px] text-white-900 font-medium leading-[23.4px]">О компании
                         </RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="/" class="text-[18px] text-white-900 font-medium leading-[23.4px]">Контакты
+                        <RouterLink to="/contact" class="text-[18px] text-white-900 font-medium leading-[23.4px]">Контакты
                         </RouterLink>
                     </li>
                 </ul>

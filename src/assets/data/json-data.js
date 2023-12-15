@@ -632,3 +632,24 @@ export const sertificatData=[
     },
     
 ]
+
+export const contactData=[
+    {
+        phone_num:'+998 90 124 74-74',
+        email:'archiholding@info.uz',
+        title:'Для прессы',
+        id:1
+    },
+    {
+        phone_num:'+998 99 877 14-12',
+        email:'archiholding@info.uz',
+        id:2,
+        title:'Для инвесторов'
+    },
+    {
+        phone_num:'+998 99 877 14-12',
+        email:'archiholding@info.uz',
+        id:3 ,
+        title:'Офис' 
+    }
+]

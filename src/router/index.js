@@ -40,6 +40,11 @@ const router = createRouter({
       name:'company',
       component:()=>import('@/pages/CompanyPage.vue')
     },
+  {
+    path:'/contact',
+    name:'contact',
+    component:()=>import('@/pages/ContactPage.vue')
+  }
   ]
 })
 
