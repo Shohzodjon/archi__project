@@ -8,13 +8,17 @@ import partner2 from '@/assets/images/partner2.png';
 import partner3 from '@/assets/images/partner3.png';
 import project1 from '@/assets/images/project1.png';
 import project2 from '@/assets/images/project2.png';
+import sertificat1 from '@/assets/images/sertificat1.png';
+import sertificat2 from '@/assets/images/sertificat2.png';
+import sertificat3 from '@/assets/images/sertificat3.png';
+import sertificat4 from '@/assets/images/sertificat4.png';
 
 
 
 export const rateData = [
     {
         num: "765+",
-        service: "УСТАНОВКИ",
+        service: "Установки",
         id: 1
     },
     {
@@ -564,4 +568,67 @@ export const blogData=[
         id:11
     }
 
+]
+
+export const serviceData=[
+    {
+        id:1,
+        title:'консультации по применению оборудования на возобновляемых источниках'
+    },
+    {
+        id:2,
+        title:'продажа отдельных компонентов и готовых комплектов для систем энергоснабжения'
+    },
+    {
+        id:3,
+        title:'оптовые поставки оборудования под заказ'
+    },
+    {
+        id:4,
+        title:'монтаж фотоэлектрических установок для частных домохозяйств и коммерческих объектов'
+    },
+    {
+        id:5,
+        title:'пусконаладочные работы и вввод в эксплуатацию солнечных электростанций'
+    },
+    {
+        id:6,
+        title:'сервисное и гарантийное обслуживания'
+    }
+]
+
+export const sertificatData=[
+    {
+        id:1,
+        img_url:sertificat1,
+    },
+    {
+        id:2,
+        img_url:sertificat2,
+    },
+    {
+        id:3,
+        img_url:sertificat3,
+    },
+    {
+        id:4,
+        img_url:sertificat4,
+    },
+    {
+        id:5,
+        img_url:sertificat1,
+    },
+    {
+        id:6,
+        img_url:sertificat2,
+    },
+    {
+        id:7,
+        img_url:sertificat3,
+    },
+    {
+        id:8,
+        img_url:sertificat4,
+    },
+    
 ]

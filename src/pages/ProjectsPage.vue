@@ -25,10 +25,9 @@ const test = () => {
 
             <div class="project__grid__box">
                 <div v-for="item in projectData" :key="item.id" class="grid__item">
-                    <ProjectCard  :img_url="item.img_url" :content="item.content" 
-                    :desc="item.desc" />
+                    <ProjectCard :img_url="item.img_url" :content="item.content" :desc="item.desc" />
                 </div>
-              
+
             </div>
         </div>
     </section>
@@ -37,46 +36,35 @@ const test = () => {
 .project__grid__box {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(3,1fr);
+    grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 24px;
     grid-row-gap: 40px;
 }
-.grid__item:nth-child(1){
-     grid-column-start: 1;
-     grid-column-end: 7;
+.grid__item:nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 7;
 }
-.grid__item:nth-child(2){
+.grid__item:nth-child(2) {
     grid-column-start: 7;
     grid-column-end: 13;
 }
-.grid__item:nth-child(3){
+
+.grid__item:nth-child(3),
+.grid__item:nth-child(6) {
     grid-column-start: 1;
     grid-column-end: 5;
 }
-.grid__item:nth-child(4){
+
+.grid__item:nth-child(4),
+.grid__item:nth-child(7) {
     grid-column-start: 5;
     grid-column-end: 9;
 }
-.grid__item:nth-child(5){
+
+.grid__item:nth-child(5),
+.grid__item:nth-child(8) {
     grid-column-start: 9;
     grid-column-end: 13;
 }
-.grid__item:nth-child(6){
-    grid-column-start: 1;
-    grid-column-end: 5;
-}
-.grid__item:nth-child(7){
-    grid-column-start: 5;
-    grid-column-end: 9;
-}
-.grid__item:nth-child(8){
-    grid-column-start: 9;
-    grid-column-end: 13;
-}
-
-
-
-
-
 
 </style>

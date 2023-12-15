@@ -10,8 +10,8 @@ const props = defineProps({
 })
 </script>
 <template>
-    <div class="max-w-[557px] rounded overflow-hidden">
-        <div class="w-full relative"><img :src="props.img_url" alt="news image" class="w-full h-auto object-fill" />
+    <div class="max-w-[557px] rounded overflow-hidden group ">
+        <div class="w-full relative"> <img :src="props.img_url" alt="news image" class="w-full  object-cover h-[260px] transition ease-linear duration-500 group-hover:scale-110 ">
         <span class="absolute left-4 bottom-3 bg-blue-500 py-[6px] px-[10px] text-white-900 text-[18px] leading-27px font-semibold font-gilroy-bold">{{ props.news_date }}</span>
         </div>
         <!-- end of card image -->
