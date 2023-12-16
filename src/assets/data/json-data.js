@@ -45,14 +45,17 @@ export const mainCardData = [
         main_small_img: city,
         main_card_desc: 'Комплексные решения в области солнечной энергетики для бизнеса станут отличным способом, позволяющим экономить на электроэнергии',
         id: 1,
-        main_card_title: "Для бизнеса"
+        main_card_title: "Для бизнеса",
+        route_url:'/buisness'
+
     },
     {
         main_card_img: mainCardImg,
         main_small_img: city,
         main_card_desc: 'Комплексные решения в области солнечной энергетики для бизнеса станут отличным способом, позволяющим экономить на электроэнергии',
         main_card_title: "Частным Лицам",
-        id: 2
+        id: 2,
+        route_url:'/individual'
     }
 ]
 

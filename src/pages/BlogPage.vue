@@ -15,9 +15,10 @@ import { blogData } from '@/assets/data/json-data'
 
       <div class="container">
          <div class="blog__grid__box mt-[60px] mb-[120px]">
-            <div class="blog__item " v-for="item in blogData" :key="item.id">
+            <div class="blog__item " v-for="(item, index) in blogData" :key="item.id">
                <NewsCard :img_url="item.img_url" :news_date="item.news_date" :news_title="item.news_title"
-                  :news_desc="item.news_desc" />
+                  :news_desc="item.news_desc" :slug="`/blog:${index}`" />
+                  <!-- slug: `blog/${item.id}`, -->
             </div>
          </div>
       </div>

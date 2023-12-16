@@ -1,6 +1,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import { RouterLink } from 'vue-router';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation, Autoplay, A11y } from 'swiper/modules';
 //  components 
@@ -90,7 +91,7 @@ const onSubmit = () => {
 
                     <div class="flex mt-10 gap-6">
                         <MainCard v-for="(item, index) in mainCardData" :key="item.id" :main_card_img="item.main_card_img"
-                            :main_small_img="item.main_small_img" :main_card_title="item.main_card_title"
+                            :main_small_img="item.main_small_img" :main_card_title="item.main_card_title" :route_url="item.route_url"
                             :main_card_desc="item.main_card_desc" :data-aos="[index == 1 ? 'fade-left' : 'fade-right']"
                             data-aos-easing="linear" data-aos-duration="900" :data-aos-delay="200 * (index + 1)" />
                     </div>
@@ -133,9 +134,12 @@ const onSubmit = () => {
                 </div>
                 <!--  end of slider wrapper  -->
                 <div class="flex justify-center ">
-                    <BaseButton content="Подробнее" class="home__btn border-2 border-blue-500 text-blue-500 px-[58px] ">
-                        <Arrow />
-                    </BaseButton>
+                    <RouterLink to="/products">
+                        <BaseButton content="Подробнее" class="home__btn border-2 border-blue-500 text-blue-500 px-[58px] ">
+                            <Arrow />
+                        </BaseButton>
+                    </RouterLink>
+                   
                 </div>
             </div>
         </div>
@@ -255,9 +259,9 @@ const onSubmit = () => {
                             nextEl: '.swiper-next',
                             prevEl: '.swiper-prev',
                         }">
-                        <swiper-slide v-for="item in homeNewsData" :key="item.id">
+                        <swiper-slide v-for="(item,index) in homeNewsData" :key="item.id">
                             <NewsCard :img_url="item.img_url" :news_date="item.news_date" :news_title="item.news_title"
-                                :news_desc="item.news_desc" />
+                                :news_desc="item.news_desc" :slug="`/blog:${index}`"/>
 
                         </swiper-slide>
                     </swiper>

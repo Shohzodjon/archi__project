@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps } from 'vue';
+import { RouterLink } from 'vue-router';
 import Arrow from '@/assets/icons/Arrow.vue';
 import BaseButton from './BaseButton.vue';
 
@@ -8,6 +9,7 @@ const props = defineProps({
     main_card_title: String,
     main_card_desc: String,
     main_small_img: String,
+    route_url: String
 })
 
 </script>
@@ -20,11 +22,16 @@ const props = defineProps({
                 <div class="small__img__wrapper absolute w-[100px] h-[100px] flex items-center justify-center -top-10">
                     <img :src="props.main_small_img" alt="small image wrapper" class="max-w-20 max-h-20" />
                 </div>
-                <h3 class="mt-20 text-[32px] leading-[41.6px] font-bold font-gilroy-medium text-grey-900 mb-2">{{ props.main_card_title }}</h3>
-                <p class="text-grey-500 text-[18px] leading-[27px] font-medium mb-6" >{{ props.main_card_desc }}</p>
-                <BaseButton :content="props.main_card_title" class="border-[2px] border-blue-500 text-blue-500 px-[53px] main__card__button">
-                    <Arrow />
-                </BaseButton>
+                <h3 class="mt-20 text-[32px] leading-[41.6px] font-bold font-gilroy-medium text-grey-900 mb-2">{{
+                    props.main_card_title }}</h3>
+                <p class="text-grey-500 text-[18px] leading-[27px] font-medium mb-6">{{ props.main_card_desc }}</p>
+                <RouterLink :to="route_url">
+                    <BaseButton :content="props.main_card_title"
+                        class="border-[2px] border-blue-500 text-blue-500 px-[53px] main__card__button">
+                        <Arrow />
+                    </BaseButton>
+                </RouterLink>
+
             </div>
         </div>
     </div>
@@ -45,10 +52,9 @@ const props = defineProps({
     border-radius: 2px;
     background: linear-gradient(180deg, #3588FE 0%, #1F76F1 100%);
 }
-
 </style>
 <style>
-.main__card__button svg path{
+.main__card__button svg path {
     fill: #3689FF;
 }
 </style>
