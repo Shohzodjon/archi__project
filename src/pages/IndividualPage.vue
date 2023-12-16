@@ -25,10 +25,12 @@ import { implementData, buisnessOfferData } from '@/assets/data/json-data';
                 <div class="flex items-center justify-between my-20">
                     <BuisnessCard title="Причины использовать солнечную электростанцию"
                         desc="Реалии таковы, что цены на электроэнергию постоянно поднимаются. Предприниматели вынуждены искать пути оптимизации расходов, чтобы не прогореть в условиях сильной конкурентной среды. Производственные предприятия имеют возможности сэкономить путем следования программам по повышению энергоэффективности или принципам бережного производства, позволяющим не только сохранить ресурсы, но и избавиться от негативного воздействия на природу."
-                        :img_url="img" />
+                        :img_url="img" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="900"
+                        data-aos-delay="600" />
                     <BuisnessCard title="Причины использовать солнечную электростанцию"
                         desc="Реалии таковы, что цены на электроэнергию постоянно поднимаются. Предприниматели вынуждены искать пути оптимизации расходов, чтобы не прогореть в условиях сильной конкурентной среды. Производственные предприятия имеют возможности сэкономить путем следования программам по повышению энергоэффективности или принципам бережного производства, позволяющим не только сохранить ресурсы, но и избавиться от негативного воздействия на природу."
-                        :img_url="img" />
+                        :img_url="img" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="900"
+                        data-aos-delay="600" />
                 </div>
                 <div class="bg-green-800 rounded-lg py-[60px] px-10 mt-20">
                     <h2 class="text-white-900 text-[40px] font-bold font-gilroy-bold text-center leading-[52px] mb-[52px] ">
@@ -38,13 +40,15 @@ import { implementData, buisnessOfferData } from '@/assets/data/json-data';
                         Долгосрочный договор поставки электроэнергии для промышленных предприятий.
                         Отсутствие инвестиций со стороны заказчика на этапе строительства солнечной генерации.</p>
                     <div class="flex gap-8">
-                        <Implementation v-for="item in implementData" :key="item.id" :proccess_step="item.proccess_step"
-                            :proccess_title="item.proccess_title" :proccess_desc="item.proccess_desc"
-                            :last_position="item.last_position" />
+                        <Implementation v-for="(item, index) in implementData" :key="item.id"
+                            :proccess_step="item.proccess_step" :proccess_title="item.proccess_title"
+                            :proccess_desc="item.proccess_desc" :last_position="item.last_position" data-aos="fade-up"
+                            data-aos-easing="linear" data-aos-duration="900" :data-aos-delay="350 * (index + 1)" />
                     </div>
                 </div>
                 <!-- green  -->
-                <div class="bg-grey-100 rounded-lg flex items-center justify-between pl-[70px] pr-10 pt-[1px] mt-20">
+                <div class="bg-grey-100 rounded-lg flex items-center justify-between pl-[70px] pr-10 pt-[1px] mt-20"
+                    data-aos="fade-right" data-aos-easing="linear" data-aos-duration="900" data-aos-delay="600">
                     <div class="w-full max-w-[348px]">
                         <img src="../assets/images/img_covered1.png" alt=" left sidebar image" class="w-full" />
                     </div>
@@ -75,8 +79,10 @@ import { implementData, buisnessOfferData } from '@/assets/data/json-data';
                             Отсутствие инвестиций со стороны заказчика на этапе строительства солнечной генерации.</p>
 
                         <div class="flex gap-8">
-                            <OfferCard v-for="item in buisnessOfferData" :key="item.id" :img_url="item.img_url"
-                                :card_header="item.card_header" :card_desc="item.card_desc" />
+                            <OfferCard v-for="(item, index) in buisnessOfferData" :key="item.id" :img_url="item.img_url"
+                                :card_header="item.card_header" :card_desc="item.card_desc"
+                                :data-aos="[index == 0 ? 'zoom-in-up' : index == 1 ? 'zoom-in-up' : index == 2 ? 'zoom-in-down' : 'zoom-in-down']"
+                                data-aos-easing="linear" data-aos-duration="900" :data-aos-delay="200 * (index + 1)" />
                         </div>
                     </BuisnessPageOfferSection>
                 </div>

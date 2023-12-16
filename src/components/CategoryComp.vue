@@ -10,7 +10,8 @@ const props=defineProps({
 <template>
 
     <ul class="flex items-center gap-4">
-        <li class=" border-[1.5px] border-grey-200 p-4 rounded-sm flex items-center justify-center cursor-pointer" @click="$emit('filterCategory')" v-for="item in category" :key="item.id">
+        <li class=" border-[1.5px] border-grey-200 p-4 rounded-sm flex items-center justify-center cursor-pointer" @click="$emit('filterCategory')" v-for="(item,index) in category" :key="item.id"  data-aos="fade-down" data-aos-easing="linear"
+        data-aos-duration="900" :data-aos-delay="400 * (index + 1)">
             <span class="text-grey-900 text-xl !leading-[26px] font-bold font-gilroy-bold">{{ item.title }}</span>
         </li>
     </ul>

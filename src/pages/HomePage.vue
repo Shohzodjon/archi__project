@@ -28,7 +28,7 @@ const modules = [Navigation, Autoplay, A11y];
 
 //  functions
 
-const onSubmit=()=>{
+const onSubmit = () => {
     alert('Submitted !!!!!')
 }
 
@@ -81,16 +81,18 @@ const onSubmit=()=>{
             <div class="container ">
                 <div class="pt-[313px] relative">
                     <div class="flex  bg-white-900 p-6 gap-6 rounded absolute left-0 -top-[60px] ">
-                        <ResultCard v-for="item in rateData" :key="item.id" :result_content="item.num"
-                            :result_category="item.service" />
+                        <ResultCard v-for="(item, index) in rateData" :key="item.id" :result_content="item.num"
+                            :result_category="item.service" data-aos="fade-right" data-aos-easing="linear"
+                            data-aos-duration="900" :data-aos-delay="200 * (index + 1)" />
                     </div>
                     <SectionHeader header__content="Что мы предлагаем"
                         header__desc="Мы предлагаем высококачественную продукцию, качественный сервис и 25 летнюю гарантию на солнечные электростанции" />
 
                     <div class="flex mt-10 gap-6">
-                        <MainCard v-for="item in mainCardData" :key="item.id" :main_card_img="item.main_card_img"
+                        <MainCard v-for="(item, index) in mainCardData" :key="item.id" :main_card_img="item.main_card_img"
                             :main_small_img="item.main_small_img" :main_card_title="item.main_card_title"
-                            :main_card_desc="item.main_card_desc" />
+                            :main_card_desc="item.main_card_desc" :data-aos="[index == 1 ? 'fade-left' : 'fade-right']"
+                            data-aos-easing="linear" data-aos-duration="900" :data-aos-delay="200 * (index + 1)" />
                     </div>
                 </div>
 
@@ -103,7 +105,8 @@ const onSubmit=()=>{
                 <SectionHeader header__content="Гарантия"
                     header__desc="Солнечные решения от компании Archi Holding - это гарантия качества и эффективности на долгий срок. Мы предоставляем гарантию 25 лет на солнечные панели, 10 лет на солнечные инверторы, 10 лет на аккумуляторы, 5 лет на солнечные водонагреватели" />
 
-                <div class="relative my-10">
+                <div class="relative my-10" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="900"
+                    :data-aos-delay="600">
                     <swiper :slides-per-view="4" :space-between="10" :modules="modules" :loop="true"
                         :autoplay="{ delay: 3500 }" :navigation="{
                             nextEl: '.swiper-next',
@@ -142,14 +145,17 @@ const onSubmit=()=>{
                 <SectionHeader header__content="Наши Преимущества" class="home__header__section !text-white-900"
                     header__desc="Солнечные решения от компании Archi Holding - это гарантия качества и эффективности." />
                 <div class="flex items-center gap-6 mt-[90px]">
-                    <OfferCard v-for="item in homeOfferedCardData" :key="item.id" :card_header="item.card_header"
-                        :card_desc="item.card_desc" :img_url="item.img_url" class="!bg-blue-900" />
+                    <OfferCard v-for="(item, index) in homeOfferedCardData" :key="item.id" :card_header="item.card_header"
+                        :card_desc="item.card_desc" :img_url="item.img_url" class="!bg-blue-900"
+                        :data-aos="[index == 1 ? 'fade-left' : 'fade-right']" data-aos-easing="linear"
+                        data-aos-duration="900" :data-aos-delay="200 * (index + 1)" />
                 </div>
             </div>
         </div>
         <!--  end of Преимущества section  -->
         <div class="py-[120px] bg-grey-100">
-            <div class="container">
+            <div class="container" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="1000"
+            :data-aos-delay="600">
                 <SectionHeader header__content="Наша продукция"
                     header__desc="Солнечные решения от компании Archi Holding - это гарантия качества и эффективности на долгий срок. Мы предоставляем гарантию 25 лет на солнечные панели." />
 
@@ -328,19 +334,21 @@ header::before {
     background: #022D6A;
     opacity: .6;
 }
+
 .home__slider__btn {
     background: linear-gradient(180deg, #3588FE 0%, #1F76F1 100%);
 }
-.partner__section{
+
+.partner__section {
     background: linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%);
 }
-
 </style>
 <style>
 .home__submit__btn {
     border-radius: 4px;
     background: linear-gradient(180deg, #3689FF 0%, #2077F2 100%) !important;
 }
+
 .home__btn svg path {
     fill: #3689FF;
 }

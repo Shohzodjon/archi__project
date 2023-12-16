@@ -29,10 +29,12 @@ import { implementData, buisnessOfferData } from '@/assets/data/json-data';
                     <div class="flex items-center gap-10 mt-20">
                          <BuisnessCard title="Причины использовать солнечную электростанцию"
                               desc="Реалии таковы, что цены на электроэнергию постоянно поднимаются. Предприниматели вынуждены искать пути оптимизации расходов, чтобы не прогореть в условиях сильной конкурентной среды. Производственные предприятия имеют возможности сэкономить путем следования программам по повышению энергоэффективности или принципам бережного производства, позволяющим не только сохранить ресурсы, но и избавиться от негативного воздействия на природу."
-                              :img_url="img2" />
+                              :img_url="img2" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="900"
+                              data-aos-delay="600" />
                          <BuisnessCard title="Причины использовать солнечную электростанцию"
                               desc="Реалии таковы, что цены на электроэнергию постоянно поднимаются. Предприниматели вынуждены искать пути оптимизации расходов, чтобы не прогореть в условиях сильной конкурентной среды. Производственные предприятия имеют возможности сэкономить путем следования программам по повышению энергоэффективности или принципам бережного производства, позволяющим не только сохранить ресурсы, но и избавиться от негативного воздействия на природу."
-                              :img_url="img2" />
+                              :img_url="img2" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="900"
+                              data-aos-delay="600" />
                     </div>
                     <!-- end of first card -->
                     <div class="bg-green-800 rounded-lg py-[60px] px-10 mt-20">
@@ -44,13 +46,16 @@ import { implementData, buisnessOfferData } from '@/assets/data/json-data';
                               Долгосрочный договор поставки электроэнергии для промышленных предприятий.
                               Отсутствие инвестиций со стороны заказчика на этапе строительства солнечной генерации.</p>
                          <div class="flex gap-8">
-                              <Implementation v-for="item in implementData" :key="item.id"
+                              <Implementation v-for="(item, index) in implementData" :key="item.id"
                                    :proccess_step="item.proccess_step" :proccess_title="item.proccess_title"
-                                   :proccess_desc="item.proccess_desc" :last_position="item.last_position" />
+                                   :proccess_desc="item.proccess_desc" :last_position="item.last_position"
+                                   data-aos="fade-down" data-aos-easing="linear" data-aos-duration="900"
+                                   :data-aos-delay="350 * (index + 1)" />
                          </div>
                     </div>
                     <!--  end of second card -->
-                    <div class="bg-grey-100 rounded-lg flex items-center justify-between pl-[70px] pr-10 pt-[1px] mt-20">
+                    <div class="bg-grey-100 rounded-lg flex items-center justify-between pl-[70px] pr-10 pt-[1px] mt-20"
+                         data-aos="fade-left" data-aos-easing="linear" data-aos-duration="900" data-aos-delay="600">
                          <div class="w-full max-w-[348px]">
                               <img src="../assets/images/img_covered1.png" alt=" left sidebar image" class="w-full" />
                          </div>
@@ -83,8 +88,10 @@ import { implementData, buisnessOfferData } from '@/assets/data/json-data';
                                    Отсутствие инвестиций со стороны заказчика на этапе строительства солнечной генерации.</p>
 
                               <div class="flex gap-8">
-                                   <OfferCard v-for="item in buisnessOfferData" :key="item.id" :img_url="item.img_url"
-                                        :card_header="item.card_header" :card_desc="item.card_desc" />
+                                   <OfferCard v-for="(item, index) in buisnessOfferData" :key="item.id"
+                                        :img_url="item.img_url" :card_header="item.card_header" :card_desc="item.card_desc"
+                                        :data-aos="[index == 1 ? 'fade-left' : 'fade-right']" data-aos-easing="linear"
+                                        data-aos-duration="900" :data-aos-delay="200 * (index + 1)" />
                               </div>
                          </BuisnessPageOfferSection>
                     </div>

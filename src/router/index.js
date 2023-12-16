@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomePage from '@/pages/HomePage.vue'
+import HomePage from '@/pages/HomePage.vue';
+import AOS from "aos";
+import 'aos/dist/aos.css';
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   scrollBehavior(to, from, savedPosition) {
@@ -47,5 +50,10 @@ const router = createRouter({
   }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  AOS.init();
+  next();
+});
 
 export default router
