@@ -24,8 +24,9 @@ const test = () => {
             </div>
 
             <div class="project__grid__box">
-                <div v-for="item in projectData" :key="item.id" class="grid__item">
-                    <ProjectCard :img_url="item.img_url" :content="item.content" :desc="item.desc" />
+                <div v-for="(item, index)  in projectData" :key="item.id" class="grid__item">
+                    <ProjectCard :img_url="item.img_url" :content="item.content" :desc="item.desc"
+                        :slug="`/projects:${index}`" />
                 </div>
 
             </div>
@@ -40,10 +41,12 @@ const test = () => {
     grid-column-gap: 24px;
     grid-row-gap: 40px;
 }
+
 .grid__item:nth-child(1) {
     grid-column-start: 1;
     grid-column-end: 7;
 }
+
 .grid__item:nth-child(2) {
     grid-column-start: 7;
     grid-column-end: 13;
@@ -66,5 +69,4 @@ const test = () => {
     grid-column-start: 9;
     grid-column-end: 13;
 }
-
 </style>

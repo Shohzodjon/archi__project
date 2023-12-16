@@ -5,12 +5,13 @@ import { RouterLink } from 'vue-router';
 const props=defineProps({
     img_url:String,
     content:String,
-    desc:String
+    desc:String,
+    slug:String,
 })
 
 </script>
 <template>
-    <RouterLink to="/"  >
+    <RouterLink :to="props.slug"  >
         <div class="relative max-w-[848px] h-[500px] project__card rounded overflow-hidden">
             <img :src="props.img_url" alt="project-card-img" class="w-full h-full max-h-[500px]"/>
             <div class="absolute left-6 right-6 bottom-6 bg-white-900 p-6 rounded-sm">
