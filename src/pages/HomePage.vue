@@ -91,9 +91,10 @@ const onSubmit = () => {
 
                     <div class="flex mt-10 gap-6">
                         <MainCard v-for="(item, index) in mainCardData" :key="item.id" :main_card_img="item.main_card_img"
-                            :main_small_img="item.main_small_img" :main_card_title="item.main_card_title" :route_url="item.route_url"
-                            :main_card_desc="item.main_card_desc" :data-aos="[index == 1 ? 'fade-left' : 'fade-right']"
-                            data-aos-easing="linear" data-aos-duration="900" :data-aos-delay="200 * (index + 1)" />
+                            :main_small_img="item.main_small_img" :main_card_title="item.main_card_title"
+                            :route_url="item.route_url" :main_card_desc="item.main_card_desc"
+                            :data-aos="[index == 1 ? 'fade-left' : 'fade-right']" data-aos-easing="linear"
+                            data-aos-duration="900" :data-aos-delay="200 * (index + 1)" />
                     </div>
                 </div>
 
@@ -113,10 +114,10 @@ const onSubmit = () => {
                             nextEl: '.swiper-next',
                             prevEl: '.swiper-prev',
                         }">
-                        <swiper-slide v-for="item in homeProductData" :key="item.id">
+                        <swiper-slide v-for="(item, index)  in homeProductData" :key="item.id">
                             <div class="h-[545px]">
                                 <ProductCard class="w-full" :img_url="item.img_url" :product_title="item.product_title"
-                                    :product_desc="item.product_desc" />
+                                    :product_desc="item.product_desc" :slug="`/products:${index}`" />
                             </div>
 
                         </swiper-slide>
@@ -139,7 +140,7 @@ const onSubmit = () => {
                             <Arrow />
                         </BaseButton>
                     </RouterLink>
-                   
+
                 </div>
             </div>
         </div>
@@ -159,7 +160,7 @@ const onSubmit = () => {
         <!--  end of Преимущества section  -->
         <div class="py-[120px] bg-grey-100">
             <div class="container" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="1000"
-            :data-aos-delay="600">
+                :data-aos-delay="600">
                 <SectionHeader header__content="Наша продукция"
                     header__desc="Солнечные решения от компании Archi Holding - это гарантия качества и эффективности на долгий срок. Мы предоставляем гарантию 25 лет на солнечные панели." />
 
@@ -169,9 +170,10 @@ const onSubmit = () => {
                             nextEl: '.swiper-next',
                             prevEl: '.swiper-prev',
                         }">
-                        <swiper-slide v-for="item in homeProductData" :key="item.id">
+                        <swiper-slide v-for="(item, index)  in homeProductData" :key="item.id">
                             <div class="h-[545px]">
-                                <ProductCard class="w-full" :img_url="item.img_url" :product_title="item.product_title" />
+                                <ProductCard class="w-full" :img_url="item.img_url" :product_title="item.product_title"
+                                    :slug="`/products:${index}`" />
                             </div>
 
                         </swiper-slide>
@@ -259,9 +261,9 @@ const onSubmit = () => {
                             nextEl: '.swiper-next',
                             prevEl: '.swiper-prev',
                         }">
-                        <swiper-slide v-for="(item,index) in homeNewsData" :key="item.id">
+                        <swiper-slide v-for="(item, index) in homeNewsData" :key="item.id">
                             <NewsCard :img_url="item.img_url" :news_date="item.news_date" :news_title="item.news_title"
-                                :news_desc="item.news_desc" :slug="`/blog:${index}`"/>
+                                :news_desc="item.news_desc" :slug="`/blog:${index}`" />
 
                         </swiper-slide>
                     </swiper>

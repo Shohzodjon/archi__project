@@ -10,6 +10,7 @@ export default {
       "white-900": "#fff",
       "white-800":"rgba(255,255,255,0.8)",
       "grey-900": "#031D41",
+      "grey-600":"rgba(3,29,65, 0.6)",
       "grey-500": "#536681",
       "grey-200": "#C5C9D6",
       "grey-100": "#EFF2F6",

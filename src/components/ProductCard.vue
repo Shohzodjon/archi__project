@@ -1,31 +1,35 @@
 
 <script setup>
 import { defineProps } from 'vue';
-
+import { RouterLink } from 'vue-router';
 const props = defineProps({
     img_url: String,
     product_title: String,
     product_desc: String,
     addition__class: String,
-    initial_price: String
+    initial_price: String,
+    slug: String
 })
 
 </script>
 <template>
-    <div class="max-w-[412] max-h-[450px] relative">
-        <img :src="props.img_url" alt="card img" class="w-[100%] h-[100%] max-w-[412px] max-h-[450px]" />
+    <RouterLink :to="props.slug">
+        <div class="max-w-[412] max-h-[450px] relative">
+            <img :src="props.img_url" alt="card img" class="w-[100%] h-[100%] max-w-[412px] max-h-[450px]" />
 
-        <div class=" card__bottom absolute w-full max-w-[372px] p-5 left-5 -translate-y-5">
-            <h4 class="text-[26px] font-bold font-gilroy-bold leading-[33.8px] mb-2 text-grey-900">{{ props.product_title }}
-            </h4>
-            <div class="flex items-center justify-between">
-                <p class="text-[18px] font-medium font-gilroy-medium leading-[27px] text-grey-500"
-                    :class="[addition__class ? addition__class : '']">{{ props.product_desc }}</p>
-                <span class="text-[18px] font-semibold font-gilroy-bold leading-[27px]"
-                    :class="[props.initial_price ? '' : 'hidden']">{{ props.initial_price }}</span>
+            <div class=" card__bottom absolute w-full max-w-[372px] p-5 left-5 -translate-y-5">
+                <h4 class="text-[26px] font-bold font-gilroy-bold leading-[33.8px] mb-2 text-grey-900">{{
+                    props.product_title }}
+                </h4>
+                <div class="flex items-center justify-between">
+                    <p class="text-[18px] font-medium font-gilroy-medium leading-[27px] text-grey-500"
+                        :class="[addition__class ? addition__class : '']">{{ props.product_desc }}</p>
+                    <span class="text-[18px] font-semibold font-gilroy-bold leading-[27px]"
+                        :class="[props.initial_price ? '' : 'hidden']">{{ props.initial_price }}</span>
+                </div>
             </div>
         </div>
-    </div>
+    </RouterLink>
 </template>
 <style scoped>
 .card__bottom {
@@ -34,8 +38,9 @@ const props = defineProps({
     box-shadow: 0px 4px 20px 0px rgba(3, 29, 65, 0.10);
 
 }
-span{
-color: rgba(3, 29, 65, 0.6);
-text-decoration-line:line-through;
+
+span {
+    color: rgba(3, 29, 65, 0.6);
+    text-decoration-line: line-through;
 }
 </style>
