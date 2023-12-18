@@ -9,6 +9,7 @@ import ExtraProjectCard from '@/components/ExtraProjectCard.vue';
 import { homeNewsData, thumbsImages } from '@/assets/data/json-data'
 import SmallArrow from '@/assets/icons/SmallArrow.vue'
 import SliderThumbs from '@/components/SliderThumbs.vue';
+import BreadCrumb from '@/components/BreadCrumb.vue';
 const modules = [Navigation, Autoplay];
 
 </script>

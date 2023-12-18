@@ -228,20 +228,6 @@ const onSubmit = () => {
                         <h3 class="text-grey-900 text-center text-[40px] font-bold font-gilroy-bold mb-8">Государственное
                             налоговое управление</h3>
                         <SliderThumbs :images="thumbsImages" header_slider="home__thumbs__slider__top" bottom_slider="home__thumbs__slider__bottom"  :is_navigation="false"/>
-
-                        <!-- <div class="grid grid-cols-12 gap-6 max-w-[1138px] mx-auto">
-                            <div class="col-span-12 max-w-[1138px] w-full max-h-[540px]">
-                                <img src="../assets/images/thumbs.png" alt="img" class="w-full h-full">
-                            </div>
-                            <div class="col-span-3  max-h-[160px]"><img src="../assets/images/thumbs2.png" alt="img"
-                                    class="w-full h-full"></div>
-                            <div class="col-span-3  max-h-[160px]"><img src="../assets/images/thumbs3.png" alt="img"
-                                    class="w-full h-full"></div>
-                            <div class="col-span-3 max-h-[160px]"><img src="../assets/images/thumbs4.png" alt="img"
-                                    class="w-full h-full"></div>
-                            <div class="col-span-3  max-h-[160px]"><img src="../assets/images/thumbs.png" alt="img"
-                                    class="w-full h-full"></div>
-                        </div> -->
                     </div>
 
                 </div>

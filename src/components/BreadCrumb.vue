@@ -1,37 +1,37 @@
 <script setup>
-import {defineProps} from 'vue';
-const props=defineProps({
-    items:Array
+import { RouterLink } from 'vue-router'
+import { computed } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+const currentRoute = router.currentRoute
+const breadcrumbs = computed(() => {
+  const matched = currentRoute.value.matched
+  const breadcrumbs = matched.map(route => {
+    console.log(route, 'eeeeeee');
+    return {
+      label: route.meta.breadcrumbLabel,
+      path: route.path
+    }
+  })
+  return breadcrumbs
 })
 
-const navigateTo=(route)=>{
-    console.log('Navigating to:', route);
-}
 
-  </script>
+</script>
 <template>
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item" v-for="(item, index) in items" :key="index" :class="{ 'active': index === (items.length - 1) }">
-          <a v-if="index !== (items.length - 1)" @click="navigateTo(item.route)">{{ item.label }}</a>
-          <span v-else>{{ item.label }}</span>
-        </li>
-      </ol>
-    </nav>
-  </template>
-  <style>
-  .breadcrumb-item {
-    display: inline-block
-  }
-  
-  .breadcrumb-item + .breadcrumb-item::before {
-    content: "\003E";
-    padding: 0 5px;
-    color: #6c757d;
-  }
-  
-  .breadcrumb-item.active {
-    color: #007bff;
-  }
-  </style>
+  <nav aria-label="breadcrumb" class="w-[100px] h-[100px] border border-[crimson]">
+    <ol>
+      <li v-for="(breadcrumb, index) in breadcrumbs" :key="index">
+        <RouterLink :to="breadcrumb.path">{{ breadcrumb.label }}</RouterLink>
+      </li>
+    </ol>
+  </nav>
+</template>
+<style scoped>
+nav ol li:not(:last-child)::after {
+  content: "/";
+  margin: 0 5px;
+}
+</style>
   

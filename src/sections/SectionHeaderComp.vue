@@ -1,5 +1,6 @@
 
 <script setup>
+import BreadCrumb from '@/components/BreadCrumb.vue';
 import { defineProps } from 'vue';
 
 const props = defineProps({
@@ -12,6 +13,7 @@ const props = defineProps({
     <header class="pt-[206px]">
         <div class="container relative z-30">
             <h3>Breadcrumb component</h3>
+            <BreadCrumb />
             <h2 class="text-white-900 font-bold font-gilroy-bold leading-[52px] text-[40px]">{{ props.title }}</h2>
         </div>
     </header>

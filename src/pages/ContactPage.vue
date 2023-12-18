@@ -1,11 +1,12 @@
 
 <script setup>
+import {ref} from 'vue';
 import SectionHeaderComp from '@/sections/SectionHeaderComp.vue';
 import ContactCard from '@/components/ContactCard.vue';
-
 import { contactData } from '@/assets/data/json-data';
 import BaseButton from '@/components/BaseButton.vue';
 import Arrow from '@/assets/icons/Arrow.vue';
+
 </script>
 
 <template>
@@ -70,5 +71,8 @@ import Arrow from '@/assets/icons/Arrow.vue';
 .contact__btn {
     border-radius: 4px;
     background: linear-gradient(180deg, #3689FF 0%, #2077F2 100%);
+}
+.vti__dropdown{
+    display: none !important;
 }
 </style>

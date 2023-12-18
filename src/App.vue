@@ -3,13 +3,8 @@ import { RouterView } from 'vue-router';
 import { Transition } from 'vue';
 import Navbar from './sections/Navbar.vue';
 import Footer from './sections/Footer.vue';
-import BreadCrumb from './components/BreadCrumb.vue';
 
-const breadcrumbs=[
-          { label: 'Category', route: '/category' },
-          // { label: 'Subcategory', route: '/category/subcategory' },
-          { label: 'Current Page', route: '/category' }
-        ]
+
 </script>
 
 <template>
@@ -25,7 +20,6 @@ const breadcrumbs=[
 </template>
 
 <style>
-
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0.2;
