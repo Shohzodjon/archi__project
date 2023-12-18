@@ -1,6 +1,5 @@
 
 <script setup>
-import { ref } from 'vue'
 import { RouterLink } from 'vue-router';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation, Autoplay, A11y } from 'swiper/modules';
@@ -15,14 +14,13 @@ import SmallArrow from '@/assets/icons/SmallArrow.vue'
 import OfferCard from '@/components/OfferCard.vue';
 import NewsCard from '@/components/NewsCard.vue';
 import PartnerCard from '@/components/PartnerCard.vue';
+import SliderThumbs from '@/components/SliderThumbs.vue';
 //  fake datas
-import { rateData, mainCardData, homeProductData, homeOfferedCardData, homeProjectData, homeNewsData, partnerData } from '@/assets/data/json-data'
+import { rateData, mainCardData, homeProductData, homeOfferedCardData, homeProjectData, homeNewsData, partnerData, thumbsImages } from '@/assets/data/json-data'
 //  styles 
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/free-mode';
-import 'swiper/css/navigation';
-import 'swiper/css/thumbs';
+
 
 //  variables
 const modules = [Navigation, Autoplay, A11y];
@@ -229,7 +227,9 @@ const onSubmit = () => {
                     <div class="pt-[60px]">
                         <h3 class="text-grey-900 text-center text-[40px] font-bold font-gilroy-bold mb-8">Государственное
                             налоговое управление</h3>
-                        <div class="grid grid-cols-12 gap-6 max-w-[1138px] mx-auto">
+                        <SliderThumbs :images="thumbsImages" header_slider="home__thumbs__slider__top" bottom_slider="home__thumbs__slider__bottom"  :is_navigation="false"/>
+
+                        <!-- <div class="grid grid-cols-12 gap-6 max-w-[1138px] mx-auto">
                             <div class="col-span-12 max-w-[1138px] w-full max-h-[540px]">
                                 <img src="../assets/images/thumbs.png" alt="img" class="w-full h-full">
                             </div>
@@ -241,7 +241,7 @@ const onSubmit = () => {
                                     class="w-full h-full"></div>
                             <div class="col-span-3  max-h-[160px]"><img src="../assets/images/thumbs.png" alt="img"
                                     class="w-full h-full"></div>
-                        </div>
+                        </div> -->
                     </div>
 
                 </div>
@@ -370,5 +370,33 @@ header::before {
 .home__project__slider .swiper-slide-active div {
     border-color: #3689FF !important;
     background: #F1F4F9;
+}
+.home__thumbs__slider__top{
+    margin-bottom: 24px;
+    width: 100%;
+    max-width: 1138px;
+    height: 540px;
+}
+.home__thumbs__slider__top img{
+    width: 100%;
+    height: 100%;
+}
+.home__thumbs__slider__bottom{
+    width: 100%;
+    max-width: 1138px;  
+}
+.home__thumbs__slider__bottom .swiper-slide{
+    width: 100%;
+    height: 160px;
+    max-width: 266px;
+    border: 3px solid #fff;
+    transition: all linear .5s;
+}
+.home__thumbs__slider__bottom .swiper-slide img{
+    width: 100%;
+    height: 100%;
+}
+.home__thumbs__slider__bottom .swiper-slide-thumb-active{
+    border-color: #3689FF;
 }
 </style>
