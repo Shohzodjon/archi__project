@@ -1,0 +1,22 @@
+{
+    "router-link":{
+        "buisnesss":"For business",
+        "individual":"For individuals",
+        "product":"Products",
+        "project":"Projects",
+        "blog":"Blog",
+        "about":"About company",
+        "contact":"Contact",
+        "sections":"Sections"
+    },
+    "btn-content":{
+        "submit":"Submit your application",
+        "subscribe-news":"Subscribe to our newsletter",
+        "order":"Order now",
+        "share":"Share",
+        "more_detail":"More details",
+        "consultation":"Get a free consultation",
+        "send":"Send"
+    }
+
+}

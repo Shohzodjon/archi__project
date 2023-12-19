@@ -95,18 +95,18 @@ import Arrow from "../assets/icons/Arrow.vue";
               <RouterLink
                 to="/buisness"
                 class="text-white-900 text-[18px] leading-[23.4px] font-medium font-gilroy-medium"
-                >Для бизнеса</RouterLink
+                >{{$t('router-link.buisnesss')}}</RouterLink
               >
             </li>
-            <li><RouterLink to="/individual" class="text-white-900 text-[18px] leading-[23.4px] font-medium font-gilroy-medium">Частным лицам</RouterLink></li>
-            <li><RouterLink to="/products" class="text-white-900 text-[18px] leading-[23.4px] font-medium font-gilroy-medium">Продукты</RouterLink></li>
-            <li><RouterLink to="/projects" class="text-white-900 text-[18px] leading-[23.4px] font-medium font-gilroy-medium">Проекты</RouterLink></li>
-            <li><RouterLink to="/blog" class="text-white-900 text-[18px] leading-[23.4px] font-medium font-gilroy-medium">Блог</RouterLink></li>
-            <li><RouterLink to="/company" class="text-white-900 text-[18px] leading-[23.4px] font-medium font-gilroy-medium">О компании</RouterLink></li>
-            <li><RouterLink to="/contact" class="text-white-900 text-[18px] leading-[23.4px] font-medium font-gilroy-medium">Контакты</RouterLink></li>
+            <li><RouterLink to="/individual" class="text-white-900 text-[18px] leading-[23.4px] font-medium font-gilroy-medium">{{$t('router-link.individual')}}</RouterLink></li>
+            <li><RouterLink to="/products" class="text-white-900 text-[18px] leading-[23.4px] font-medium font-gilroy-medium">{{ $t('router-link.product') }}</RouterLink></li>
+            <li><RouterLink to="/projects" class="text-white-900 text-[18px] leading-[23.4px] font-medium font-gilroy-medium">{{ $t('router-link.project') }}</RouterLink></li>
+            <li><RouterLink to="/blog" class="text-white-900 text-[18px] leading-[23.4px] font-medium font-gilroy-medium">{{ $t('router-link.blog') }}</RouterLink></li>
+            <li><RouterLink to="/company" class="text-white-900 text-[18px] leading-[23.4px] font-medium font-gilroy-medium">{{ $t('router-link.about') }}</RouterLink></li>
+            <li><RouterLink to="/contact" class="text-white-900 text-[18px] leading-[23.4px] font-medium font-gilroy-medium">{{ $t('router-link.contact') }}</RouterLink></li>
           </ul>
           <!--  end of router link -->
-          <BaseButton content="Оставить Заявку" class="nav__btn px-[38px] text-white-900">
+          <BaseButton :content="$t('btn-content.submit')" class="nav__btn px-[38px] text-white-900">
             <Arrow />
           </BaseButton>
         </div>

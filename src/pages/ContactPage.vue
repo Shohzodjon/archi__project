@@ -43,7 +43,7 @@ import Arrow from '@/assets/icons/Arrow.vue';
                                     class=" w-full  h-40 py-[18px] pl-5 rounded border-[1.5px] border-grey-200 outline-blue-500 text-[18px] font-semibold font-gilroy-medium placeholder:text-grey-500"></textarea>
                             </li>
                             <li>
-                                <BaseButton content="Отправить" class="contact__btn text-white-900 px-[65px]">
+                                <BaseButton :content="$t('btn-content.send')" class="contact__btn text-white-900 px-[65px]">
                                     <Arrow />
                                 </BaseButton>
                             </li>

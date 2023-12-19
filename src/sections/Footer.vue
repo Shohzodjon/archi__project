@@ -29,41 +29,49 @@ import Instagram from "../assets/icons/Instagram.vue";
                 <!-- end of first list -->
                 <ul class=" flex flex-col gap-4">
                     <li class="mb-2"><span
-                            class=" text-[#BBD0EF] uppercase text-base leading-[20.8px] font-semibold ">разделы</span></li>
+                            class=" text-[#BBD0EF] uppercase text-base leading-[20.8px] font-semibold ">{{$t('router-link.sections')}}</span></li>
                     <li>
-                        <RouterLink to="/buisness" class="text-[18px] text-white-900 font-medium leading-[23.4px]">Для бизнеса
+                        <RouterLink to="/buisness" class="text-[18px] text-white-900 font-medium leading-[23.4px]">
+                            {{ $t('router-link.buisnesss') }}
                         </RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="/individual" class="text-[18px] text-white-900 font-medium leading-[23.4px]">Частным лицам
+                        <RouterLink to="/individual" class="text-[18px] text-white-900 font-medium leading-[23.4px]">
+                            {{ $t('router-link.individual') }}
                         </RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="/products" class="text-[18px] text-white-900 font-medium leading-[23.4px]">Продукты
+                        <RouterLink to="/products" class="text-[18px] text-white-900 font-medium leading-[23.4px]">{{
+                            $t('router-link.product') }}
                         </RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="/projects" class="text-[18px] text-white-900 font-medium leading-[23.4px]">Проекты
+                        <RouterLink to="/projects" class="text-[18px] text-white-900 font-medium leading-[23.4px]">{{
+                            $t('router-link.project') }}
                         </RouterLink>
                     </li>
                 </ul>
                 <!-- end of rasdeli list -->
                 <ul class=" flex flex-col gap-4 mt-[45px]">
                     <li>
-                        <RouterLink to="/blog" class="text-[18px] text-white-900 font-medium leading-[23.4px]">Блог</RouterLink>
+                        <RouterLink to="/blog" class="text-[18px] text-white-900 font-medium leading-[23.4px]">{{
+                            $t('router-link.blog') }}</RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="/company" class="text-[18px] text-white-900 font-medium leading-[23.4px]">О компании
+                        <RouterLink to="/company" class="text-[18px] text-white-900 font-medium leading-[23.4px]">{{
+                            $t('router-link.about') }}
                         </RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="/contact" class="text-[18px] text-white-900 font-medium leading-[23.4px]">Контакты
+                        <RouterLink to="/contact" class="text-[18px] text-white-900 font-medium leading-[23.4px]">{{
+                            $t('router-link.contact') }}
                         </RouterLink>
                     </li>
                 </ul>
                 <!-- end of blog list -->
                 <ul class="flex flex-col gap-4">
-                    <li><span class=" text-[#BBD0EF] uppercase text-base leading-[20.8px] font-semibold ">Контакт</span>
+                    <li><span class=" text-[#BBD0EF] uppercase text-base leading-[20.8px] font-semibold ">{{
+                        $t('router-link.contact') }}</span>
                     </li>
                     <li><a href="+998 90 124 74-74" class="flex items-center gap-[12px]">
                             <Phone /> <span class="text-[18px] text-white-900 font-meduim leading-[27px]">+998 90 124
@@ -87,13 +95,14 @@ import Instagram from "../assets/icons/Instagram.vue";
             <div class="flex justify-between items-center">
                 <p class="text-[18px] leading-[27px] font-medium text-white-900">Подпишитесь на нашу рассылку новостей
                     <br />
-                    и событий прямо сейчас, чтобы быть в курсе</p>
+                    и событий прямо сейчас, чтобы быть в курсе
+                </p>
 
                 <div class="flex items-center gap-6 ">
                     <input type="email" required placeholder="Электронной почты"
                         class="footer__input  w-[500px] rounded py-[18px] pl-5 text-[18px] text-white-900 font-medium placeholder:text-white-900" />
                     <BaseButton class="footer__btn px-11 text-white-900 text-[18px] font-semibold"
-                        content="Подписаться на рассылку">
+                        :content="$t('btn-content.subscribe-news')">
                         <Arrow />
                     </BaseButton>
                 </div>
@@ -127,4 +136,5 @@ import Instagram from "../assets/icons/Instagram.vue";
     border: 1px solid rgba(255, 255, 255, 0.40);
     outline: none;
     background: none;
-}</style>
+}
+</style>

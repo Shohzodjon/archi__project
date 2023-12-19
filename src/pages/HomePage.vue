@@ -47,7 +47,7 @@ const onSubmit = () => {
                             Group pants for corporate interim ourselves invite.
                             Crystallize right beef join Activities slipstream shower
                             one socialize back-end cost time eow comes.</p>
-                        <BaseButton content="Подробнее" class="home__submit__btn text-white-900 px-[38px]">
+                        <BaseButton :content="$t('btn-content.more_detail')" class="home__submit__btn text-white-900 px-[38px]">
                             <Arrow />
                         </BaseButton>
                     </div>
@@ -67,7 +67,7 @@ const onSubmit = () => {
                                     class="rounded w-full border border-grey-200 py-[18px] pl-5 outline-blue-500 font-semibold font-gilroy-bold leading-normal text-grey-500 placeholder:text-grey-500" />
                             </li>
                         </ul>
-                        <BaseButton content="Получить бесплатную консультацию"
+                        <BaseButton :content="$t('btn-content.consultation')"
                             class="!w-full home__submit__btn justify-center text-white-900">
                             <Arrow />
                         </BaseButton>

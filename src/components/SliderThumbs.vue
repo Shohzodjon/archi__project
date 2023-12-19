@@ -18,7 +18,7 @@ const props = defineProps({
     images: Array,
     header_slider: String,
     bottom_slider: String,
-    is_navigation:Boolean
+    is_navigation: Boolean
 })
 
 const setThumbsSwiper = (swiper) => {
@@ -27,7 +27,11 @@ const setThumbsSwiper = (swiper) => {
 
 </script>
 <template>
-    <Swiper :spaceBetween="10" :thumbs="{ swiper: thumbsSwiper }" :modules="modules" :class="props.header_slider">
+    <Swiper :spaceBetween="10" :thumbs="{ swiper: thumbsSwiper }" :modules="modules" :class="props.header_slider"
+        :navigation="{
+            nextEl: '.swiper-next_test',
+            prevEl: '.swiper-prev_test',
+        }">
         <SwiperSlide v-for="item in images" :key="item.id">
             <img :src="item.img_url" alt="thumbs images">
         </SwiperSlide>
@@ -42,7 +46,7 @@ const setThumbsSwiper = (swiper) => {
             <img :src="item.img_url" alt="thumbs bottom images">
         </SwiperSlide>
     </Swiper>
-    <div class="flex w-full items-center justify-center gap-6 mt-10" :class="[props.is_navigation?'flex':'hidden']">
+    <div class="flex w-full items-center justify-center gap-6 mt-10" :class="[props.is_navigation ? 'flex' : 'hidden']">
         <button
             class="project__slider__btn swiper-prev_test cursor-pointer w-[60px] h-[60px] rounded-sm flex items-center justify-center border-[1.5px] border-grey-200"
             aria-label="button" @swiper="setThumbsSwiper">

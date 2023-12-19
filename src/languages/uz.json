@@ -1,0 +1,21 @@
+{
+    "router-link":{
+        "buisnesss":"Biznes uchun",
+        "individual":"Jismoniy shaxslar uchun",
+        "product":"Maxsulotlar",
+        "project":"Loyihalar",
+        "blog":"Blog",
+        "about":"Kompaniya haqida",
+        "contact":"Kontakt",
+        "sections":"Bo'limlar"
+    },
+    "btn-content":{
+        "submit":"Arizangizni yuboring",
+        "subscribe-news":"Bizning yangiliklarimizga obuna bo'ling",
+        "order":"Hoziroq buyurtma bering",
+        "share":"Ulashish",
+        "more_detail":"Batafsil",
+        "consultation":"Bepul maslahat oling",
+        "send":"Yuborish"
+    }
+}

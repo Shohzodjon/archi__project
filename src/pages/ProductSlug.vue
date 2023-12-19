@@ -65,8 +65,8 @@ const modules = [Navigation, Autoplay, A11y];
                                 000 000 СУМ</span>
                         </div>
                         <div class="h-[1.5px] bg-grey-200 w-full my-6"></div>
-                        <BaseButton content="Заказать сейчас" class="product__slug__button" />
-                        <BaseButton content="Поделиться" class="product__slug__button2" />
+                        <BaseButton :content="$t('btn-content.order')" class="product__slug__button" />
+                        <BaseButton :content="$t('btn-contnent.share')" class="product__slug__button2" />
                     </div>
                     <!--  end of right sidebar -->
                 </div>
