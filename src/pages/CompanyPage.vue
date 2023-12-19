@@ -8,10 +8,18 @@ import SmallArrow from '@/assets/icons/SmallArrow.vue';
 import { rateData, serviceData, sertificatData } from '@/assets/data/json-data'
 
 const modules = [Navigation, Autoplay, A11y]
+
+const data=[
+    {
+        label:'О компании',
+        url:''
+    }
+]
+
 </script>
 <template>
     <section>
-        <SectionHeaderComp title="О компании" />
+        <SectionHeaderComp  :bread-data="data" />
 
         <div class="bg-white-900 pt-[60px] pb-[120px]">
             <div class="container">

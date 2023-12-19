@@ -12,55 +12,37 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: HomePage,
-      meta: {
-        breadcrumbLabel: "Home",
-      },
+      component: HomePage
     },
     {
       path: "/buisness",
       name: "buisness",
       component: () => import("@/pages/BuisnessPage.vue"),
-      meta: {
-        breadcrumbLabel: "Buisness",
-      },
     },
     {
       path: "/individual",
       name: "individual",
       component: () => import("@/pages/IndividualPage.vue"),
-      meta: {
-        breadcrumbLabel: "Individual",
-      },
     },
     {
       path: "/products",
       name: "product",
       component: () => import("@/pages/ProductPage.vue"),
-      meta: {
-        breadcrumbLabel: "Products",
-      },
+  
     },
     {
       path: "/products/:id",
       name: "productslug",
       component: () => import("@/pages/ProductSlug.vue"),
-      meta: {
-        breadcrumbLabel: "ProductSlug",
-      },
     },
-    {
-      path: "/products:slug",
-      name: "productslug",
-      component: () => import("@/pages/ProductSlug.vue"),
-    },
+
     {
       path: "/projects",
       name: "projects",
       component: () => import("@/pages/ProjectsPage.vue"),
     },
     {
-      path: "/projects:slug",
+      path: "/projects/:id",
       name: "projectslug",
       component: () => import("@/pages/ProjectSlug.vue"),
     },
@@ -70,7 +52,7 @@ const router = createRouter({
       component: () => import("@/pages/BlogPage.vue"),
     },
     {
-      path: "/blog:slug",
+      path: "/blog/:id",
       name: "blog slug",
       component: () => import("@/pages/BlogSlug.vue"),
     },

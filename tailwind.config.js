@@ -1,5 +1,10 @@
 export default {
-  content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
+  content: [
+    "./index.html",
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
+    "node_modules/flowbite-vue/**/*.{js,jsx,ts,tsx,vue}",
+    "node_modules/flowbite/**/*.{js,jsx,ts,tsx}",
+  ],
   theme: {
     extend: {},
     colors: {
@@ -8,9 +13,9 @@ export default {
       "blue-700": "#154FA1",
       "blue-500": "#3689FF",
       "white-900": "#fff",
-      "white-800":"rgba(255,255,255,0.8)",
+      "white-800": "rgba(255,255,255,0.8)",
       "grey-900": "#031D41",
-      "grey-600":"rgba(3,29,65, 0.6)",
+      "grey-600": "rgba(3,29,65, 0.6)",
       "grey-500": "#536681",
       "grey-200": "#C5C9D6",
       "grey-100": "#EFF2F6",
@@ -24,6 +29,5 @@ export default {
       "gilroy-ligth": "'Gilroy-Light', sans-serif",
     },
   },
-  plugins: [],
+  plugins: [require("flowbite/plugin")],
 };
-

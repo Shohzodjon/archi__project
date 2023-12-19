@@ -11,7 +11,6 @@ const props = defineProps({
     main_small_img: String,
     route_url: String
 })
-console.log(props.main_card_title , 'dddddd')
 </script>
 <template>
     <div class="mt-20 main__card relative max-w-[848px] max-h-[650px] rounded overflow-hidden">

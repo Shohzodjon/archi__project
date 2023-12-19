@@ -115,7 +115,7 @@ const onSubmit = () => {
                         <swiper-slide v-for="(item, index)  in homeProductData" :key="item.id">
                             <div class="h-[545px]">
                                 <ProductCard class="w-full" :img_url="item.img_url" :product_title="item.product_title"
-                                    :product_desc="item.product_desc" :slug="`/products:${index}`" />
+                                    :product_desc="item.product_desc" :slug="`/products/:${index}`" />
                             </div>
 
                         </swiper-slide>
@@ -134,7 +134,7 @@ const onSubmit = () => {
                 <!--  end of slider wrapper  -->
                 <div class="flex justify-center ">
                     <RouterLink to="/products">
-                        <BaseButton content="Подробнее" class="home__btn border-2 border-blue-500 text-blue-500 px-[58px] ">
+                        <BaseButton :content="$t('btn-content.more_detail')" class="home__btn border-2 border-blue-500 text-blue-500 px-[58px] ">
                             <Arrow />
                         </BaseButton>
                     </RouterLink>
@@ -171,7 +171,7 @@ const onSubmit = () => {
                         <swiper-slide v-for="(item, index)  in homeProductData" :key="item.id">
                             <div class="h-[545px]">
                                 <ProductCard class="w-full" :img_url="item.img_url" :product_title="item.product_title"
-                                    :slug="`/products:${index}`" />
+                                    :slug="`/products/:${index}`" />
                             </div>
 
                         </swiper-slide>
@@ -249,7 +249,7 @@ const onSubmit = () => {
                         }">
                         <swiper-slide v-for="(item, index) in homeNewsData" :key="item.id">
                             <NewsCard :img_url="item.img_url" :news_date="item.news_date" :news_title="item.news_title"
-                                :news_desc="item.news_desc" :slug="`/blog:${index}`" />
+                                :news_desc="item.news_desc" :slug="`/blog/:${index}`" />
 
                         </swiper-slide>
                     </swiper>
@@ -282,7 +282,6 @@ const onSubmit = () => {
                             prevEl: '.swiper-prev',
                         }">
                         <swiper-slide v-for="item in partnerData" :key="item.id">
-
                             <PartnerCard :img_url="item.img_url" />
                         </swiper-slide>
                     </swiper>

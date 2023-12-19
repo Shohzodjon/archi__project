@@ -11,10 +11,19 @@ import img from '../assets/images/buisness_card_img.png'
 
 //  variables
 import { implementData, buisnessOfferData } from '@/assets/data/json-data';
+
+const data = [
+    {
+        label: 'Частным лицам',
+        url: ''
+    }
+]
+
+
 </script>
 <template>
     <section>
-        <SectionHeaderComp title="Частным лицам" />
+        <SectionHeaderComp  :bread-data="data" />
         <div class="pt-[60px] pb-[120px]">
             <div class="container">
                 <SectionComp title="Зеленый тариф для <span class='text-[#27CBFF]'>юридических лиц</span>"

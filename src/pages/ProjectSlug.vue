@@ -1,5 +1,7 @@
 
 <script setup>
+import {reactive} from 'vue'
+import { useRoute } from 'vue-router';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation, Autoplay } from 'swiper/modules';
 import SectionHeaderComp from '@/sections/SectionHeaderComp.vue';
@@ -9,14 +11,32 @@ import ExtraProjectCard from '@/components/ExtraProjectCard.vue';
 import { homeNewsData, thumbsImages } from '@/assets/data/json-data'
 import SmallArrow from '@/assets/icons/SmallArrow.vue'
 import SliderThumbs from '@/components/SliderThumbs.vue';
-import BreadCrumb from '@/components/BreadCrumb.vue';
+
 const modules = [Navigation, Autoplay];
+
+const route = useRoute();
+const id = route.params.id;
+const data =reactive([
+    {
+        label: 'Проекты',
+        url: '/projects'
+    }
+]);
+homeNewsData.forEach(item => {
+    if (item.id == id.substring(1,2)) {
+        data.push({
+            label: item.news_title,
+            url: ''
+        })
+    }
+
+})
 
 </script>
 <template>
     <section>
 
-        <SectionHeaderComp title="Государственное налоговое управление" />
+        <SectionHeaderComp :bread-data="data" />
         <div class="mt-[60px] pb-[120px]">
             <div class="container">
                 <div class="max-w-[1138px] mx-auto mb-[120px]">
@@ -77,7 +97,7 @@ const modules = [Navigation, Autoplay];
                         }">
                         <swiper-slide v-for="(item, index)  in homeNewsData" :key="item.id">
                             <ExtraProjectCard :img_url="item.img_url" :title="item.news_title"
-                                :slug="`/projects:${index}`" />
+                                :slug="`/projects/:${index}`" />
 
                         </swiper-slide>
                     </swiper>

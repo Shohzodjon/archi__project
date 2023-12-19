@@ -2,19 +2,23 @@
 <script setup>
 import BreadCrumb from '@/components/BreadCrumb.vue';
 import { defineProps } from 'vue';
+import {ref} from 'vue';
 
 const props = defineProps({
     breadData: Array,
-    title: String
+})
+
+const title=ref('');
+props.breadData.forEach(item=>{
+    title.value=item.label
 })
 
 </script>
 <template>
     <header class="pt-[206px]">
         <div class="container relative z-30">
-            <h3>Breadcrumb component</h3>
-            <BreadCrumb />
-            <h2 class="text-white-900 font-bold font-gilroy-bold leading-[52px] text-[40px]">{{ props.title }}</h2>
+            <BreadCrumb :crumbs="breadData" />
+            <h2 class="text-white-900 font-bold font-gilroy-bold leading-[52px] text-[40px]">{{ title }}</h2>
         </div>
     </header>
 </template>

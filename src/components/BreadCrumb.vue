@@ -1,37 +1,43 @@
+
 <script setup>
-import { RouterLink } from 'vue-router'
-import { computed } from 'vue'
-import { useRouter } from 'vue-router'
-
-const router = useRouter()
-const currentRoute = router.currentRoute
-const breadcrumbs = computed(() => {
-  const matched = currentRoute.value.matched
-  const breadcrumbs = matched.map(route => {
-    console.log(route, 'eeeeeee');
-    return {
-      label: route.meta.breadcrumbLabel,
-      path: route.path
-    }
-  })
-  return breadcrumbs
+import { FwbBreadcrumb, FwbBreadcrumbItem } from 'flowbite-vue';
+import { RouterLink } from 'vue-router';
+import { defineProps } from 'vue';
+import HomeIcon from '@/assets/icons/HomeIcon.vue'
+const props = defineProps({
+    crumbs: Array
 })
-
-
 </script>
 <template>
-  <nav aria-label="breadcrumb" class="w-[100px] h-[100px] border border-[crimson]">
-    <ol>
-      <li v-for="(breadcrumb, index) in breadcrumbs" :key="index">
-        <RouterLink :to="breadcrumb.path">{{ breadcrumb.label }}</RouterLink>
-      </li>
-    </ol>
-  </nav>
+    <div>
+        <fwb-breadcrumb class="breadcrumbs">
+            <RouterLink to="/">
+                <fwb-breadcrumb-item home>
+                    <template #home-icon>
+                        <HomeIcon />
+                        <span
+                            class="text-[18px] font-medium font-gilroy-medium leading-[27px] text-white-900 block ml-2">Home</span>
+                    </template>
+                </fwb-breadcrumb-item>
+            </RouterLink>
+            <li v-for="(item, index) in crumbs" :key="index">
+                <RouterLink :to="item.url" :class="[item.url ? 'active__breadcrubm' : 'unactive__breadcrumb']">
+                    <fwb-breadcrumb-item>
+                        <span class="text-[18px] font-medium font-gilroy-medium leading-[27px] text-white-900 block ml-2">{{
+                            item.label }}</span>
+                    </fwb-breadcrumb-item>
+                </RouterLink>
+            </li>
+        </fwb-breadcrumb>
+    </div>
 </template>
-<style scoped>
-nav ol li:not(:last-child)::after {
-  content: "/";
-  margin: 0 5px;
+<style>
+.breadcrumbs {
+    background: none;
+}
+
+.unactive__breadcrumb {
+    cursor: default !important;
 }
 </style>
   

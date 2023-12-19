@@ -8,7 +8,12 @@ import ProjectCard from '@/components/ProjectCard.vue'
 //  fake datas
 import { projectCategory, projectData } from '@/assets/data/json-data'
 
-
+const data=[
+    {
+        label:'Проекты',
+        url:''
+    }
+]
 const test = () => {
     alert('Works')
 }
@@ -16,7 +21,7 @@ const test = () => {
 
 <template>
     <section class=" pb-[120px]">
-        <SectionHeaderComp title="Проекты" />
+        <SectionHeaderComp  :bread-data="data"/>
         <div class="container">
             <div class="mt-[60px] mb-10">
                 <CategoryComp :category="projectCategory" @filter-category="test" />
@@ -26,7 +31,7 @@ const test = () => {
             <div class="project__grid__box">
                 <div v-for="(item, index)  in projectData" :key="item.id" class="grid__item">
                     <ProjectCard :img_url="item.img_url" :content="item.content" :desc="item.desc"
-                        :slug="`/projects:${index}`" />
+                        :slug="`/projects/:${index}`" />
                 </div>
 
             </div>

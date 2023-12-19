@@ -7,12 +7,18 @@ import { contactData } from '@/assets/data/json-data';
 import BaseButton from '@/components/BaseButton.vue';
 import Arrow from '@/assets/icons/Arrow.vue';
 
+const data=[
+    {
+        label:'Контакты',
+        url:''
+    }
+]
 </script>
 
 <template>
     <section>
 
-        <SectionHeaderComp title="Контакты" />
+        <SectionHeaderComp  :bread-data="data"/>
         <div class="pb-[120px] pt-[60px]">
             <div class="container">
                 <div class="flex items-center gap-6">

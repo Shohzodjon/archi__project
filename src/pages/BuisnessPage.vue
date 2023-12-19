@@ -10,11 +10,18 @@ import BuisnessPageOfferSection from '@/sections/BuisnessPageOfferSection.vue';
 import OfferCard from '@/components/OfferCard.vue';
 // import fake data
 import { implementData, buisnessOfferData } from '@/assets/data/json-data';
+const data = [
+     {
+          label: 'Для бизнеса',
+          url: ''
+     }
+]
+
 
 </script>
 <template>
      <section>
-          <SectionHeaderComp title="Для бизнеса" />
+          <SectionHeaderComp  :bread-data="data"/>
 
           <div class="bg-white-900 pt-[60px] pb-[120px]">
                <div class="container">

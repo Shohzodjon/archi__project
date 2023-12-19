@@ -1,8 +1,9 @@
 
 <script setup>
+import{reactive} from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation, Autoplay, A11y } from 'swiper/modules';
-
+import { useRoute } from 'vue-router';
 import SectionHeaderComp from '@/sections/SectionHeaderComp.vue';
 import SectionHeader from '@/components/SectionHeader.vue';
 import DashedLine from '@/assets/icons/DashedLine.vue';
@@ -14,15 +15,34 @@ import SmallArrow from '@/assets/icons/SmallArrow.vue';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-import { homeProductData, productTech } from '@/assets/data/json-data'
+import { homeProductData, productTech } from '@/assets/data/json-data';
 
 const modules = [Navigation, Autoplay, A11y];
+
+const route = useRoute();
+const id = route.params.id;
+const data =reactive([
+    {
+        label: 'Продукты',
+        url: '/products'
+    }
+]);
+    homeProductData.forEach(item => {
+    if (item.id == id.substring(1,2)) {
+        data.push({
+            label: item.product_title,
+            url: ''
+        })
+    }
+
+})
+
 </script>
 
 <template>
     <section>
 
-        <SectionHeaderComp title="Государственное налоговое управление" />
+        <SectionHeaderComp :bread-data="data" />
         <div class="pb-[120px] pt-[60px]">
             <div class="container">
                 <div class="flex gap-6 justify-between items-start">
@@ -106,10 +126,12 @@ const modules = [Navigation, Autoplay, A11y];
                         <template #product-tech>
                             <div class="flex items-center gap-[60px]">
                                 <div class="max-w-[576px]">
-                                    <h5 class="text-grey-900 text-2xl font-bold leading-[31.2px] font-gilroy-bold mb-4">Тех. описание</h5>
+                                    <h5 class="text-grey-900 text-2xl font-bold leading-[31.2px] font-gilroy-bold mb-4">Тех.
+                                        описание</h5>
                                     <ul class="flex-1 flex flex-col gap-[10px] ">
                                         <li class="flex items-center gap-[10px]" v-for="item in productTech" :key="item.id">
-                                            <span class="text-grey-500 text-xl leading-[30px] font-medium font-gilroy-medium"
+                                            <span
+                                                class="text-grey-500 text-xl leading-[30px] font-medium font-gilroy-medium"
                                                 v-html="item.dteail"></span>
                                             <DashedLine class="flex-1" />
                                             <span class="text-grey-900 text-xl leading-[30px] font-bold font-gilroy-bold">{{
@@ -117,28 +139,27 @@ const modules = [Navigation, Autoplay, A11y];
                                         </li>
                                     </ul>
                                 </div>
-                               <div class="max-w-[576px]">
-                                <h5 class="text-grey-900 text-2xl font-bold leading-[31.2px] font-gilroy-bold mb-4">Способ упаковки</h5>
-                                <ul class="flex-1 flex flex-col gap-[10px] max-w-[576px]">
-                                    <li class="flex items-center gap-[10px]" v-for="item in productTech" :key="item.id">
-                                        <span class="text-grey-500 text-xl leading-[30px] font-medium font-gilroy-medium"
-                                            v-html="item.dteail"></span>
-                                        <DashedLine class="flex-1" /> <span
-                                            class="text-grey-900 text-xl leading-[30px] font-bold font-gilroy-bold">{{
-                                                item.property }}</span>
-                                    </li>
-                                </ul>
-                               </div>
-                              
+                                <div class="max-w-[576px]">
+                                    <h5 class="text-grey-900 text-2xl font-bold leading-[31.2px] font-gilroy-bold mb-4">
+                                        Способ упаковки</h5>
+                                    <ul class="flex-1 flex flex-col gap-[10px] max-w-[576px]">
+                                        <li class="flex items-center gap-[10px]" v-for="item in productTech" :key="item.id">
+                                            <span
+                                                class="text-grey-500 text-xl leading-[30px] font-medium font-gilroy-medium"
+                                                v-html="item.dteail"></span>
+                                            <DashedLine class="flex-1" /> <span
+                                                class="text-grey-900 text-xl leading-[30px] font-bold font-gilroy-bold">{{
+                                                    item.property }}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
                             </div>
 
                         </template>
                     </TabWrapper>
                 </div>
-
-
                 <SectionHeader header__content="Другие продукты" />
-
                 <div class=" mt-10">
                     <swiper :slides-per-view="4" :space-between="10" :modules="modules" :loop="true"
                         :autoplay="{ delay: 3500 }" :navigation="{
@@ -148,7 +169,7 @@ const modules = [Navigation, Autoplay, A11y];
                         <swiper-slide v-for="(item, index)  in homeProductData" :key="item.id">
                             <div class="h-[545px]">
                                 <ProductCard class="w-full" :img_url="item.img_url" :product_title="item.product_title"
-                                    :slug="`/products:${index}`" />
+                                    :slug="`/products/:${index}`" />
                             </div>
                         </swiper-slide>
                     </swiper>

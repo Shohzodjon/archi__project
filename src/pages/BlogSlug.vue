@@ -1,5 +1,7 @@
 
 <script setup>
+import {reactive} from 'vue';
+import {useRoute} from 'vue-router';
 import {Swiper, SwiperSlide} from 'swiper/vue';
 import { Navigation, Autoplay } from 'swiper/modules';
 import Clock from '@/assets/icons/Clock.vue';
@@ -13,10 +15,29 @@ import slug_img from '../assets/images/news1.png'
 import {homeNewsData} from '@/assets/data/json-data'
 
 const modules = [Navigation, Autoplay];
+
+const route = useRoute();
+const id = route.params.id;
+const data =reactive([
+    {
+        label: 'Проекты',
+        url: '/projects'
+    }
+]);
+homeNewsData.forEach(item => {
+    if (item.id == id.substring(1,2)) {
+        data.push({
+            label: item.news_title,
+            url: ''
+        })
+    }
+
+})
+
 </script>
 <template>
     <section>
-        <SectionHeaderComp title="О компании" />
+        <SectionHeaderComp :bread-data="data" />
 
         <div class="pt-[60px] pb-[120px]">
             <div class="container">
@@ -68,7 +89,7 @@ const modules = [Navigation, Autoplay];
                         }">
                         <swiper-slide v-for="(item,index)  in homeNewsData" :key="item.id">
                             <NewsCard :img_url="item.img_url" :news_date="item.news_date" :news_title="item.news_title"
-                                :news_desc="item.news_desc" :slug="`/blog:${index}`"/>
+                                :news_desc="item.news_desc" :slug="`/blog/:${index}`"/>
 
                         </swiper-slide>
                     </swiper>
