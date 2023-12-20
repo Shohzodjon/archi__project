@@ -8,8 +8,8 @@ const props = defineProps({
 </script>
 <template>
     <div class="flex flex-col gap-4 justify-center items-center">
-        <h1 class="section__header text-5xl font-gilroy-bold font-bold">{{ props.header__content }}</h1>
-        <p class="text-center max-w-[850px] text-[18px] font-medium leading-[27px] text-grey-500 ">{{ props.header__desc }}</p>
+        <h1 class="section__header text-3xl md:text-4xl lg:text-5xl font-gilroy-bold font-bold">{{ props.header__content }}</h1>
+        <p class="text-center max-w-[850px] text-base md:text-[18px] font-medium md:leading-[27px] text-grey-500 ">{{ props.header__desc }}</p>
     </div>
 </template>
 <style scoped>

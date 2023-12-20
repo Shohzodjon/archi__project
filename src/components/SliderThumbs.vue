@@ -31,17 +31,44 @@ const setThumbsSwiper = (swiper) => {
         :navigation="{
             nextEl: '.swiper-next_test',
             prevEl: '.swiper-prev_test',
-        }">
+        }" 
+        
+        >
         <SwiperSlide v-for="item in images" :key="item.id">
             <img :src="item.img_url" alt="thumbs images">
         </SwiperSlide>
     </Swiper>
 
-    <Swiper @swiper="setThumbsSwiper" :spaceBetween="24" :slidesPerView="4" :freeMode="true" :watchSlidesProgress="true"
+    <Swiper @swiper="setThumbsSwiper" :spaceBetween="24" :slidesPerView="4" :freeMode="true" :loop="true" :watchSlidesProgress="true"
         :modules="modules" :class="props.bottom_slider" :navigation="{
             nextEl: '.swiper-next_test',
             prevEl: '.swiper-prev_test',
-        }">
+        }"
+        :breakpoints="{
+            350: {
+              slidesPerView: 1,
+            },
+            576: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            991: {
+                slidesPerView: 3,
+                spaceBetween: 10,
+              },
+              1200: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+              },
+              1320: {
+                slidesPerView: 4,
+                spaceBetween: 10,
+              }
+          }"
+        >
         <SwiperSlide v-for="item in images" :key="item.id">
             <img :src="item.img_url" alt="thumbs bottom images">
         </SwiperSlide>

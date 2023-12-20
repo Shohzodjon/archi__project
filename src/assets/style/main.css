@@ -6,7 +6,9 @@
 *{
   font-family: 'Gilroy-Regular', sans-serif;
 }
-
+body{
+  overflow-x: hidden;
+}
 .container{
     max-width: 1720px;
     margin: 0 auto; 

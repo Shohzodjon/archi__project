@@ -4,7 +4,6 @@ import { Transition } from 'vue';
 import Navbar from './sections/Navbar.vue';
 import Footer from './sections/Footer.vue';
 
-
 </script>
 
 <template>
@@ -28,6 +27,7 @@ import Footer from './sections/Footer.vue';
 .fade-leave-active {
   transition: opacity 0.2s ease-out;
 }
+
 </style>
 
   

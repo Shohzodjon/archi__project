@@ -11,11 +11,11 @@ const props = defineProps({
 
 </script>
 <template>
-    <div class="offer__card p-6 max-w-[412px] max-h-[329px] relative rounded-[6px]">
+    <div class="offer__card p-6 md:max-w-[412px] max-h-[329px] relative rounded-[6px]">
         <div class="absolute bg-blue-700 -top-[54px] left-6 p-[10px] rounded-sm" :class="$attrs.class"><img :src="props.img_url" alt="card img" class="max-w-20 max-h-20"></div>
         <!-- end of card img -->
-        <h3 class="mt-9 text-[26px] leading-[33.8px] font-bold font-gilroy-medium text-white-900">{{ props.card_header }}</h3>
-        <p class="leading-[27px] font-medium text-[18px]">{{ props.card_desc }}</p>
+        <h3 class="mt-9 text-xl md:text-[26px] md:leading-[33.8px] lg:text-2xl font-bold font-gilroy-medium text-white-900 !line-clamp-2">{{ props.card_header }}</h3>
+        <p class="md:leading-[27px] font-medium text-base md:text-[18px] lg:text-base line-clamp-4">{{ props.card_desc }}</p>
     </div>
 </template>
 <style scoped>

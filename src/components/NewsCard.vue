@@ -12,7 +12,7 @@ const props = defineProps({
 </script>
 <template>
     <RouterLink :to="props.slug">
-        <div class="max-w-[557px] rounded overflow-hidden group ">
+        <div class="max-w-full md:max-w-[557px] rounded overflow-hidden group ">
             <div class="w-full relative"> <img :src="props.img_url" alt="news image"
                     class="w-full  object-cover h-[260px] transition ease-linear duration-500 group-hover:scale-110 ">
                 <span
@@ -21,7 +21,7 @@ const props = defineProps({
             </div>
             <!-- end of card image -->
             <div class="mt-5 ">
-                <h5 class="text-[26px] font-bold font-gilroy-bold leading-[27px] text-grey-900 mb-2">{{ props.news_title }}
+                <h5 class="text-xl md:text-2xl lg:text-[26px] font-bold font-gilroy-bold lg:leading-[27px] text-grey-900 mb-2">{{ props.news_title }}
                 </h5>
                 <p class="text-[18px] font-medium font-gilroy-medium leading-[27px] text-grey-500 line-clamp-2">{{
                     props.news_desc }}</p>
