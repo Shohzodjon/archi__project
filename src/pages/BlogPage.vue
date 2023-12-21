@@ -1,33 +1,37 @@
 
 <script setup>
-
 import NewsCard from '@/components/NewsCard.vue';
 import SectionHeaderComp from '@/sections/SectionHeaderComp.vue';
 
 //   fake variables 
 import { blogData } from '@/assets/data/json-data'
 
-const data=[
+const data = [
    {
-      label:'Блог',
-      url:''
+      label: 'Блог',
+      url: ''
    }
 ]
+
+
+
+
 
 </script>
 
 <template>
    <section>
-      <SectionHeaderComp  :bread-data="data" />
+      <SectionHeaderComp :bread-data="data" />
 
       <div class="container">
          <div class="blog__grid__box mt-[60px] mb-[120px]">
             <div class="blog__item " v-for="(item, index) in blogData" :key="item.id">
                <NewsCard :img_url="item.img_url" :news_date="item.news_date" :news_title="item.news_title"
                   :news_desc="item.news_desc" :slug="`/blog/:${index}`" />
-                  <!-- slug: `blog/${item.id}`, -->
+               <!-- slug: `blog/${item.id}`, -->
             </div>
          </div>
+
       </div>
    </section>
 </template>

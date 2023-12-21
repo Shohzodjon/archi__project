@@ -14,10 +14,10 @@ const props = defineProps({
 </script>
 <template>
     <RouterLink :to="props.slug">
-        <div class=" w-full md:max-w-[412] max-h-[450px] relative">
-            <img :src="props.img_url" alt="card img" class="w-[100%]  md:h-[100%] md:max-w-[412px] max-h-[450px] " />
+        <div class=" w-full md:max-w-[412] max-h-[450px] h-[440px]  relative">
+            <img :src="props.img_url" alt="card img" class="w-[80%] h-full sm:h-[80%] mx-auto  " />
 
-            <div class=" card__bottom absolute w-[90%] max-w-[372px] p-2 lg:p-5 left-[50%] -translate-x-1/2 md:translate-x-0 md:left-3 -translate-y-8 ">
+            <div class=" card__bottom absolute w-[90%] max-w-[372px] p-2 lg:p-5 left-[50%] -translate-x-1/2 md:translate-x-0 md:left-3 bottom-0 translate-y-8 ">
                 <h4 class="text-xl md:text-[24px] lg:text-[26px] font-bold font-gilroy-bold leading-[33.8px] mb-2 text-grey-900">{{
                     props.product_title }}
                 </h4>

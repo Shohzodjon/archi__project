@@ -1,5 +1,6 @@
 
 <script setup>
+import { onMounted, ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation, Autoplay, A11y } from 'swiper/modules';
@@ -15,23 +16,45 @@ import OfferCard from '@/components/OfferCard.vue';
 import NewsCard from '@/components/NewsCard.vue';
 import PartnerCard from '@/components/PartnerCard.vue';
 import SliderThumbs from '@/components/SliderThumbs.vue';
+import city from "@/assets/images/city.png";
 //  fake datas
-import { rateData, mainCardData, homeProductData, homeOfferedCardData, homeProjectData, homeNewsData, partnerData, thumbsImages } from '@/assets/data/json-data'
+import {   homeProjectData,  partnerData, thumbsImages } from '@/assets/data/json-data'
 //  styles 
 import 'swiper/css';
 import 'swiper/css/navigation';
-
+import { useProductStore } from '@/stores/product'
+import { useAdvantageStore } from '@/stores/advantage';
+import { useStatisticStore } from '@/stores/statistic';
+import {useNewsStore} from '@/stores/news'
+import {usePartnerStore} from '@/stores/partner'
 
 //  variables
 const modules = [Navigation, Autoplay, A11y];
+const offerData = ref(null);
+const productStore = useProductStore();
+const advantageStore = useAdvantageStore();
+const statisticStore=useStatisticStore();
+const newsStore=useNewsStore();
+const partnerStore=usePartnerStore();
 
 //  functions
+onMounted(() => {
+    fetch('https://admin.archi.uz/api/offer')
+        .then(response => response.json())
+        .then(data => { offerData.value = data.data })
+        .catch(error => console.error('Something is wrong', error));
+
+    productStore.fetchProductData('guarantee');
+    advantageStore.fetchAdvantageData('advantages');
+    statisticStore.fetchStatisticData('statistic');
+    newsStore.fetchNewsData('slider');
+    partnerStore.fetchPartnerData('partners');
+})
+
 
 const onSubmit = () => {
     alert('Submitted !!!!!')
 }
-
-
 </script>
 <template>
     <section>
@@ -86,8 +109,8 @@ const onSubmit = () => {
                 <div class="pt-[313px] relative">
                     <div
                         class="grid grid-cols-2 md:flex w-full  bg-white-900 p-6 gap-6 rounded absolute left-0 -top-[50px] md:top-[-20px] lg:-top-[60px] ">
-                        <ResultCard v-for="(item, index) in rateData" :key="item.id" :result_content="item.num"
-                            :result_category="item.service" data-aos="fade-right" data-aos-easing="linear"
+                        <ResultCard v-for="(item, index) in statisticStore.statistic" :key="item.id" :result_content="item.title"
+                            :result_category="item.content" data-aos="fade-right" data-aos-easing="linear"
                             data-aos-duration="900" :data-aos-delay="200 * (index + 1)" />
                     </div>
                     <SectionHeader header__content="Что мы предлагаем"
@@ -95,11 +118,10 @@ const onSubmit = () => {
                         class="mt-5 md:mt-0" />
 
                     <div class="flex flex-col mt-7 md:mt-10 md:flex-row gap-6">
-                        <MainCard v-for="(item, index) in mainCardData" :key="item.id" :main_card_img="item.main_card_img"
-                            :main_small_img="item.main_small_img" :main_card_title="item.main_card_title"
-                            :route_url="item.route_url" :main_card_desc="item.main_card_desc"
-                            :data-aos="[index == 1 ? 'fade-left' : 'fade-right']" data-aos-easing="linear"
-                            data-aos-duration="900" :data-aos-delay="200 * (index + 1)" />
+                        <MainCard v-for="(item, index) in offerData" :key="item.id" :main_card_img="item.img"
+                            :main_small_img="city" :main_card_title="item.title" :route_url="'/' + item.option"
+                            :main_card_desc="item.content" :data-aos="[index == 1 ? 'fade-left' : 'fade-right']"
+                            data-aos-easing="linear" data-aos-duration="900" :data-aos-delay="200 * (index + 1)" />
                     </div>
                 </div>
 
@@ -112,44 +134,40 @@ const onSubmit = () => {
                 <SectionHeader header__content="Гарантия"
                     header__desc="Солнечные решения от компании Archi Holding - это гарантия качества и эффективности на долгий срок. Мы предоставляем гарантию 25 лет на солнечные панели, 10 лет на солнечные инверторы, 10 лет на аккумуляторы, 5 лет на солнечные водонагреватели" />
 
-                <div class="relative my-7 md:my-10 pl-2 pr-2" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="900"
-                    :data-aos-delay="600">
+                <div class="relative my-7 md:my-10 pl-2 pr-2" data-aos="fade-up" data-aos-easing="linear"
+                    data-aos-duration="900" :data-aos-delay="600">
                     <swiper :slides-per-view="4" :space-between="10" :modules="modules" :loop="true"
                         :autoplay="{ delay: 3500 }" :navigation="{
                             nextEl: '.swiper-next',
                             prevEl: '.swiper-prev',
-                        }"
-                        :breakpoints="{
-                            350: {
-                              slidesPerView: 1,
-                            },
-                            576: {
-                              slidesPerView: 1,
-                            },
-                            768: {
-                              slidesPerView: 2,
-                              spaceBetween: 20,
-                            },
-                            991: {
-                                slidesPerView: 3,
-                                spaceBetween: 10,
-                              },
-                              1200: {
-                                slidesPerView: 3,
-                                spaceBetween: 20,
-                              },
-                              1320: {
-                                slidesPerView: 4,
-                                spaceBetween: 10,
-                              }
-                          }"
-                        
-                        
-                        >
-                        <swiper-slide v-for="(item, index)  in homeProductData" :key="item.id">
+                        }" :breakpoints="{
+    350: {
+        slidesPerView: 1,
+    },
+    576: {
+        slidesPerView: 1,
+    },
+    768: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+    },
+    991: {
+        slidesPerView: 3,
+        spaceBetween: 10,
+    },
+    1200: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+    },
+    1320: {
+        slidesPerView: 4,
+        spaceBetween: 10,
+    }
+}">
+                        <swiper-slide v-for="item  in productStore.guaranteeProducts" :key="item.id">
                             <div class="h-[540px] md:h-[545px] lg:h-[560px] ">
-                                <ProductCard class="w-full" :img_url="item.img_url" :product_title="item.product_title"
-                                    :product_desc="item.product_desc" :slug="`/products/:${index}`" />
+                                <ProductCard class="w-full" :img_url="item.url" :product_title="item.title"
+                                    :slug="`/product`" />
                             </div>
 
                         </swiper-slide>
@@ -165,6 +183,7 @@ const onSubmit = () => {
                         <SmallArrow class="rotate-180" />
                     </button>
                 </div>
+
                 <!--  end of slider wrapper  -->
                 <div class="flex justify-center ">
                     <RouterLink to="/products">
@@ -182,9 +201,10 @@ const onSubmit = () => {
             <div class="container">
                 <SectionHeader header__content="Наши Преимущества" class="home__header__section !text-white-900"
                     header__desc="Солнечные решения от компании Archi Holding - это гарантия качества и эффективности." />
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 md:max-w-[90%] lg:max-w-full mx-auto lg:flex  gap-10 lg:gap-3 mt-[90px]">
-                    <OfferCard v-for="(item, index) in homeOfferedCardData" :key="item.id" :card_header="item.card_header"
-                        :card_desc="item.card_desc" :img_url="item.img_url" class="!bg-blue-900"
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:grid-cols-2 md:max-w-[90%] lg:max-w-full mx-auto lg:flex lg:gap-2 xl:gap-2 2xl:gap-6 mt-[90px]">
+                    <OfferCard v-for="(item, index) in advantageStore.advantage" :key="item.id" :card_header="item.title"
+                        :card_desc="item.content" :img_url="item.icon" class="!bg-blue-900"
                         :data-aos="[index == 1 ? 'fade-left' : 'fade-right']" data-aos-easing="linear"
                         data-aos-duration="900" :data-aos-delay="200 * (index + 1)" />
                 </div>
@@ -202,37 +222,34 @@ const onSubmit = () => {
                         :autoplay="{ delay: 3500 }" :navigation="{
                             nextEl: '.swiper-next',
                             prevEl: '.swiper-prev',
-                        }"
-                        :breakpoints="{
-                            350: {
-                              slidesPerView: 1,
-                            },
-                            576: {
-                              slidesPerView: 1,
-                            },
-                            768: {
-                              slidesPerView: 2,
-                              spaceBetween: 20,
-                            },
-                            991: {
-                                slidesPerView: 3,
-                                spaceBetween: 10,
-                              },
-                              1200: {
-                                slidesPerView: 3,
-                                spaceBetween: 20,
-                              },
-                              1320: {
-                                slidesPerView: 4,
-                                spaceBetween: 10,
-                              }
-                          }"
-                        
-                        >
-                        <swiper-slide v-for="(item, index)  in homeProductData" :key="item.id">
+                        }" :breakpoints="{
+    350: {
+        slidesPerView: 1,
+    },
+    576: {
+        slidesPerView: 1,
+    },
+    768: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+    },
+    991: {
+        slidesPerView: 3,
+        spaceBetween: 10,
+    },
+    1200: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+    },
+    1320: {
+        slidesPerView: 4,
+        spaceBetween: 10,
+    }
+}">
+                        <swiper-slide v-for="item in productStore.guaranteeProducts.data" :key="item.id">
                             <div class="h-[545px] xl:h-[480px]">
-                                <ProductCard class="w-full" :img_url="item.img_url" :product_title="item.product_title"
-                                    :slug="`/products/:${index}`" />
+                                <ProductCard class="w-full" :img_url="item.url" :product_title="item.title"
+                                    :slug="`/product/:${item.id}`" />
                             </div>
 
                         </swiper-slide>
@@ -261,32 +278,30 @@ const onSubmit = () => {
                         :navigation="{
                             nextEl: '.swiper-next',
                             prevEl: '.swiper-prev',
-                        }"
-                        :breakpoints="{
-                            350: {
-                              slidesPerView: 1,
-                            },
-                            576: {
-                              slidesPerView: 1,
-                            },
-                            768: {
-                              slidesPerView: 2,
-                              spaceBetween: 20,
-                            },
-                            991: {
-                                slidesPerView: 3,
-                                spaceBetween: 10,
-                              },
-                              1200: {
-                                slidesPerView: 3,
-                                spaceBetween: 20,
-                              },
-                              1320: {
-                                slidesPerView: 4,
-                                spaceBetween: 10,
-                              }
-                          }"
-                        >
+                        }" :breakpoints="{
+    350: {
+        slidesPerView: 1,
+    },
+    576: {
+        slidesPerView: 1,
+    },
+    768: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+    },
+    991: {
+        slidesPerView: 3,
+        spaceBetween: 10,
+    },
+    1200: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+    },
+    1320: {
+        slidesPerView: 4,
+        spaceBetween: 10,
+    }
+}">
                         <swiper-slide v-for="item in homeProjectData" :key="item.id">
                             <div
                                 class="w-full border-[1.5px] border-grey-200 bg-white-900 rounded-sm p-5 min-h-[142px] max-h-[143px]">
@@ -311,9 +326,12 @@ const onSubmit = () => {
                         </button>
                     </div>
                     <div class="pt-[60px]">
-                        <h3 class="text-grey-900 text-center text-2xl md:text-3xl lg:text-[40px] font-bold font-gilroy-bold mb-8">Государственное
+                        <h3
+                            class="text-grey-900 text-center text-2xl md:text-3xl lg:text-[40px] font-bold font-gilroy-bold mb-8">
+                            Государственное
                             налоговое управление</h3>
-                        <SliderThumbs :images="thumbsImages" header_slider="home__thumbs__slider__top" bottom_slider="home__thumbs__slider__bottom"  :is_navigation="false"/>
+                        <SliderThumbs :images="thumbsImages" header_slider="home__thumbs__slider__top"
+                            bottom_slider="home__thumbs__slider__bottom" :is_navigation="false" />
                     </div>
 
                 </div>
@@ -332,36 +350,33 @@ const onSubmit = () => {
                         :navigation="{
                             nextEl: '.swiper-next',
                             prevEl: '.swiper-prev',
-                        }"
-                        
-                        :breakpoints="{
-                            350: {
-                              slidesPerView: 1,
-                            },
-                            576: {
-                              slidesPerView: 1,
-                            },
-                            768: {
-                              slidesPerView: 2,
-                              spaceBetween: 20,
-                            },
-                            991: {
-                                slidesPerView: 3,
-                                spaceBetween: 10,
-                              },
-                              1200: {
-                                slidesPerView: 3,
-                                spaceBetween: 20,
-                              },
-                              1320: {
-                                slidesPerView: 4,
-                                spaceBetween: 10,
-                              }
-                          }"
-                        >
-                        <swiper-slide v-for="(item, index) in homeNewsData" :key="item.id">
-                            <NewsCard :img_url="item.img_url" :news_date="item.news_date" :news_title="item.news_title"
-                                :news_desc="item.news_desc" :slug="`/blog/:${index}`" />
+                        }" :breakpoints="{
+    350: {
+        slidesPerView: 1,
+    },
+    576: {
+        slidesPerView: 1,
+    },
+    768: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+    },
+    991: {
+        slidesPerView: 3,
+        spaceBetween: 10,
+    },
+    1200: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+    },
+    1320: {
+        slidesPerView: 4,
+        spaceBetween: 10,
+    }
+}">
+                        <swiper-slide v-for="(item, index) in newsStore.news" :key="item.id">
+                            <NewsCard :img_url="item.img" :news_date="item.news_date" :news_title="item.title"
+                                :news_desc="item.content" :slug="`/blog/:${item.id}`" />
 
                         </swiper-slide>
                     </swiper>
@@ -392,34 +407,32 @@ const onSubmit = () => {
                         :navigation="{
                             nextEl: '.swiper-next',
                             prevEl: '.swiper-prev',
-                        }"
-                        :breakpoints="{
-                            350: {
-                              slidesPerView: 1,
-                            },
-                            576: {
-                              slidesPerView: 2,
-                            },
-                            768: {
-                              slidesPerView: 3,
-                              spaceBetween: 20,
-                            },
-                            991: {
-                                slidesPerView: 4,
-                                spaceBetween: 15,
-                              },
-                              1200: {
-                                slidesPerView: 5,
-                                spaceBetween: 20,
-                              },
-                              1320: {
-                                slidesPerView: 6,
-                                spaceBetween: 24,
-                              }
-                          }"
-                        >
-                        <swiper-slide v-for="item in partnerData" :key="item.id">
-                            <PartnerCard :img_url="item.img_url" />
+                        }" :breakpoints="{
+    350: {
+        slidesPerView: 1,
+    },
+    576: {
+        slidesPerView: 2,
+    },
+    768: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+    },
+    991: {
+        slidesPerView: 4,
+        spaceBetween: 15,
+    },
+    1200: {
+        slidesPerView: 5,
+        spaceBetween: 20,
+    },
+    1320: {
+        slidesPerView: 6,
+        spaceBetween: 24,
+    }
+}">
+                        <swiper-slide v-for="item in partnerStore.partner" :key="item.id">
+                            <PartnerCard :img_url="item.img" :url="item.url"/>
                         </swiper-slide>
                     </swiper>
                     <div class="flex w-full items-center justify-center gap-6 mt-10">
@@ -528,12 +541,10 @@ header::before {
     border-color: #3689FF;
 }
 
-@media screen and (min-width:350px) and (max-width:776px){
+@media screen and (min-width:350px) and (max-width:776px) {
     .home__thumbs__slider__top {
         max-width: 1138px;
         height: 450px;
     }
 }
-
-
 </style>

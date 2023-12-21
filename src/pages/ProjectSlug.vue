@@ -97,7 +97,7 @@ homeNewsData.forEach(item => {
                         }">
                         <swiper-slide v-for="(item, index)  in homeNewsData" :key="item.id">
                             <ExtraProjectCard :img_url="item.img_url" :title="item.news_title"
-                                :slug="`/projects/:${index}`" />
+                                :slug="`/project/:${index}`" />
 
                         </swiper-slide>
                     </swiper>

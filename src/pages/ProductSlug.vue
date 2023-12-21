@@ -169,7 +169,7 @@ const data =reactive([
                         <swiper-slide v-for="(item, index)  in homeProductData" :key="item.id">
                             <div class="h-[545px]">
                                 <ProductCard class="w-full" :img_url="item.img_url" :product_title="item.product_title"
-                                    :slug="`/products/:${index}`" />
+                                    :slug="`/product/:${index}`" />
                             </div>
                         </swiper-slide>
                     </swiper>

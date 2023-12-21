@@ -15,34 +15,34 @@ const router = createRouter({
       component: HomePage
     },
     {
-      path: "/buisness",
-      name: "buisness",
+      path: "/business",
+      name: "business",
       component: () => import("@/pages/BuisnessPage.vue"),
     },
     {
-      path: "/individual",
+      path: "/individuals",
       name: "individual",
       component: () => import("@/pages/IndividualPage.vue"),
     },
     {
-      path: "/products",
+      path: "/product",
       name: "product",
       component: () => import("@/pages/ProductPage.vue"),
   
     },
     {
-      path: "/products/:id",
+      path: "/product/:id",
       name: "productslug",
       component: () => import("@/pages/ProductSlug.vue"),
     },
 
     {
-      path: "/projects",
+      path: "/project",
       name: "projects",
       component: () => import("@/pages/ProjectsPage.vue"),
     },
     {
-      path: "/projects/:id",
+      path: "/project/:id",
       name: "projectslug",
       component: () => import("@/pages/ProjectSlug.vue"),
     },

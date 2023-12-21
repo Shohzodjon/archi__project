@@ -12,41 +12,41 @@ import Facebook from "../assets/icons/Facebook.vue";
 import Instagram from "../assets/icons/Instagram.vue";
 </script>
 <template>
-    <footer class="bg-blue-900 pt-[60px] pb-5">
+    <footer class="bg-blue-900 pt-8 md:pt-10 lg:pt-[60px] pb-5">
         <div class="container">
-            <div class="flex flex-col md:flex-row md:flex-wrap md:justify-between gap-2 md:gap-4">
+            <div class="flex flex-col items-center md:items-start md:flex-row md:flex-wrap md:justify-between gap-2 md:gap-4">
                 <ul class="">
                     <li class="mb-4 lg:mb-8">
-                        <RouterLink to="/"><img :src="logo" alt="logo img" class="w-20 md:w-24 lg:w-24 max-w-[156.6px] max-h-[60px]">
+                        <RouterLink to="/"><img :src="logo" alt="logo img" class="w-32 md:w-28  max-w-[156.6px] max-h-[60px] mx-auto text-center md:text-left">
                         </RouterLink>
                     </li>
                     <li>
-                        <p class="text-white-900 text-base lg:text-[18px] font-medium font-gilroy-medium leading-[27px]">© 2023 Авторское
-                            Право <br />
+                        <p class="text-white-900 text-base lg:text-[18px] font-medium font-gilroy-medium leading-[27px] text-center md:text-left">© 2023 Авторское
+                            Право <br class="hidden md:block"/>
                             Archi Holding company</p>
                     </li>
                 </ul>
                 <!-- end of first list -->
-                <ul class=" flex flex-col gap-1 md:gap-2 lg:gap-4">
+                <ul class=" flex flex-col gap-2 md:gap-2 lg:gap-4">
                     <li class="md:mb-2"><span
-                            class=" text-[#BBD0EF] uppercase text-sm md:text-base leading-[20.8px] font-semibold ">{{$t('router-link.sections')}}</span></li>
+                            class=" text-[#BBD0EF] uppercase text-sm md:text-base leading-[20.8px] font-semibold block w-full text-center md:text-left">{{$t('router-link.sections')}}</span></li>
                     <li>
-                        <RouterLink to="/buisness" class="text-base md:text-[18px] text-white-900 font-medium leading-[23.4px]">
+                        <RouterLink to="/business" class="text-base md:text-[18px]  text-white-900 font-medium leading-[23.4px] block w-full text-center md:text-left">
                             {{ $t('router-link.buisnesss') }}
                         </RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="/individual" class="text-base md:text-[18px] text-white-900 font-medium leading-[23.4px]">
+                        <RouterLink to="/individuals" class="text-base md:text-[18px] text-white-900 font-medium leading-[23.4px] block w-full text-center md:text-left">
                             {{ $t('router-link.individual') }}
                         </RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="/products" class="text-base md:text-[18px] text-white-900 font-medium leading-[23.4px]">{{
+                        <RouterLink to="/product" class="text-base md:text-[18px] text-white-900 font-medium leading-[23.4px] block w-full text-center md:text-left">{{
                             $t('router-link.product') }}
                         </RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="/projects" class="text-base md:text-[18px] text-white-900 font-medium leading-[23.4px]">{{
+                        <RouterLink to="/project" class="text-base md:text-[18px] text-white-900 font-medium leading-[23.4px] block w-full text-center md:text-left">{{
                             $t('router-link.project') }}
                         </RouterLink>
                     </li>
@@ -54,38 +54,38 @@ import Instagram from "../assets/icons/Instagram.vue";
                 <!-- end of rasdeli list -->
                 <ul class=" flex flex-col md:flex-col gap-1 md:gap-4 md:mt-[45px]">
                     <li>
-                        <RouterLink to="/blog" class="text-base md:text-[18px] text-white-900 font-medium leading-[23.4px]">{{
+                        <RouterLink to="/blog" class="text-base md:text-[18px] text-white-900 font-medium leading-[23.4px] block w-full text-center md:text-left">{{
                             $t('router-link.blog') }}</RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="/company" class="text-base md:text-[18px] text-white-900 font-medium leading-[23.4px]">{{
+                        <RouterLink to="/company" class="text-base md:text-[18px] text-white-900 font-medium leading-[23.4px] block w-full text-center md:text-left">{{
                             $t('router-link.about') }}
                         </RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="/contact" class="text-base md:text-[18px] text-white-900 font-medium leading-[23.4px]">{{
+                        <RouterLink to="/contact" class="text-base md:text-[18px] text-white-900 font-medium leading-[23.4px] block w-full text-center md:text-left">{{
                             $t('router-link.contact') }}
                         </RouterLink>
                     </li>
                 </ul>
                 <!-- end of blog list -->
                 <ul class="flex flex-col gap-1 md:gap-4">
-                    <li><span class=" text-[#BBD0EF] uppercase text-sm md:text-base leading-[20.8px] font-semibold ">{{
+                    <li><span class=" text-[#BBD0EF] uppercase text-sm md:text-base leading-[20.8px] font-semibold block w-full text-center md:text-left">{{
                         $t('router-link.contact') }}</span>
                     </li>
-                    <li><a href="+998 90 124 74-74" class="flex items-center gap-[12px]">
+                    <li><a href="+998 90 124 74-74" class="flex items-center gap-[12px] justify-center md:justify-start">
                             <Phone /> <span class="text-base md:text-[18px] text-white-900 font-meduim leading-[27px]">+998 90 124
                                 74-74</span>
                         </a></li>
-                    <li><a href="mailto:archiholding@info.uz" class="flex items-center gap-[12px]">
+                    <li><a href="mailto:archiholding@info.uz" class="flex items-center gap-[12px] justify-center md:justify-start">
                             <Envelop /> <span
                                 class="text-base md:text-[18px] text-white-900 font-meduim leading-[27px]">archiholding@info.uz</span>
                         </a></li>
-                    <a href="#" class="flex items-center gap-[12px]">
+                    <RouterLink to="/contact" class="flex items-center gap-[12px] justify-center md:justify-start">
                         <Location /> <span class="text-base md:text-[18px] text-white-900 font-meduim leading-[27px]">Ташкент,
-                            Мирабадский район <br/>
+                            Мирабадский район 
                             Фаргона Йули 222/5</span>
-                    </a>
+                    </RouterLink>
                 </ul>
                 <!-- end of contact list -->
 
