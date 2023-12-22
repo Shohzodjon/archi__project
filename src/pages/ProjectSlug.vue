@@ -1,6 +1,6 @@
 
 <script setup>
-import {reactive} from 'vue'
+import {reactive, onMounted} from 'vue'
 import { useRoute } from 'vue-router';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation, Autoplay } from 'swiper/modules';
@@ -8,14 +8,20 @@ import SectionHeaderComp from '@/sections/SectionHeaderComp.vue';
 import DashedLine from '@/assets/icons/DashedLine.vue'
 import SectionHeader from '@/components/SectionHeader.vue';
 import ExtraProjectCard from '@/components/ExtraProjectCard.vue';
-import { homeNewsData, thumbsImages } from '@/assets/data/json-data'
+import { homeNewsData } from '@/assets/data/json-data'
 import SmallArrow from '@/assets/icons/SmallArrow.vue'
 import SliderThumbs from '@/components/SliderThumbs.vue';
+import {useProjectStore} from '@/stores/project'
 
 const modules = [Navigation, Autoplay];
-
 const route = useRoute();
 const id = route.params.id;
+const projectStore=useProjectStore();
+
+onMounted(()=>{
+    projectStore.fetchProjectDetail(id);
+})
+
 const data =reactive([
     {
         label: 'Проекты',
@@ -23,7 +29,7 @@ const data =reactive([
     }
 ]);
 homeNewsData.forEach(item => {
-    if (item.id == id.substring(1,2)) {
+    if (item.id == id) {
         data.push({
             label: item.news_title,
             url: ''
@@ -40,19 +46,10 @@ homeNewsData.forEach(item => {
         <div class="mt-[60px] pb-[120px]">
             <div class="container">
                 <div class="max-w-[1138px] mx-auto mb-[120px]">
-                    <h2 class="text-grey-900 text-[32px] leading-[41.6px] font-bold font-gilroy-bold mb-4">Проекты
-                        государственное налоговое управление</h2>
+                    <h2 class="text-grey-900 text-[32px] leading-[41.6px] font-bold font-gilroy-bold mb-4">{{ projectStore.projectDetail.title }}</h2>
 
                     <p class="text-grey-500 text-xl font-medium font-gilroy-medium leading-[30px] mb-8">
-                        Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem
-                        Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а
-                        также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации
-                        "Здесь ваш текст.. Здесь ваш текст.. Здесь ваш текст.."
-                        Многие программы электронной вёрстки и редакторы HTML используют Lorem Ipsum в качестве текста по
-                        умолчанию, так что поиск по ключевым словам "lorem ipsum" сразу показывает, как много веб-страниц
-                        всё ещё дожидаются своего настоящего рождения. За прошедшие годы текст Lorem Ipsum получил много
-                        версий. Некоторые версии появились по ошибке, некоторые - намеренно (например, юмористические
-                        варианты).
+                      {{ projectStore.projectDetail.content }}
                     </p>
                     <div class="w-full border-[1.5px] border-grey-200 rounded p-6">
                         <h4 class="text-grey-900 text-2xl leading-[31.2px] font-bold font-gilroy-bold ">Тех. описание</h4>
@@ -82,7 +79,7 @@ homeNewsData.forEach(item => {
                         </ul>
                     </div>
                     <div class="mt-[60px]">
-                        <SliderThumbs :images="thumbsImages" header_slider="project__silder__top"
+                        <SliderThumbs :images="projectStore.projectDetail.gallery" header_slider="project__silder__top"
                             bottom_slider="project__slider__bottom" :is_navigation="true"/>
                     </div>
                 </div>
@@ -95,9 +92,9 @@ homeNewsData.forEach(item => {
                             nextEl: '.swiper-next2',
                             prevEl: '.swiper-prev2',
                         }">
-                        <swiper-slide v-for="(item, index)  in homeNewsData" :key="item.id">
-                            <ExtraProjectCard :img_url="item.img_url" :title="item.news_title"
-                                :slug="`/project/:${index}`" />
+                        <swiper-slide v-for="item in projectStore.otherProject.others" :key="item.id">
+                            <ExtraProjectCard :img_url="item.url" :title="item.title"
+                                :slug="`/project/${item.id}`" />
 
                         </swiper-slide>
                     </swiper>

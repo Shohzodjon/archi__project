@@ -1,12 +1,21 @@
 
 <script setup>
-
+import { onMounted,ref } from 'vue';
 import CategoryComp from '@/components/CategoryComp.vue';
 import SectionHeaderComp from '@/sections/SectionHeaderComp.vue';
 import ProjectCard from '@/components/ProjectCard.vue'
-
+import { FwbPagination } from 'flowbite-vue'
 //  fake datas
-import { projectCategory, projectData } from '@/assets/data/json-data'
+import { projectCategory } from '@/assets/data/json-data'
+import {useProjectStore} from '@/stores/project';
+
+const projectStore=useProjectStore();
+const currentPage = ref(1);
+
+
+onMounted(()=>{
+   projectStore.fetchProjectData('projects');
+})
 
 const data=[
     {
@@ -29,12 +38,17 @@ const test = () => {
             </div>
 
             <div class="project__grid__box">
-                <div v-for="(item, index)  in projectData" :key="item.id" class="grid__item">
-                    <ProjectCard :img_url="item.img_url" :content="item.content" :desc="item.desc"
-                        :slug="`/projects/:${index}`" />
+                <div v-for="item  in projectStore.projects" :key="item.id" class="grid__item">
+                    <ProjectCard :img_url="item.img" :content="item.title" :desc="item.short_content"
+                        :slug="`/project/${item.id}`" />
                 </div>
 
             </div>
+            <div class="flex justify-center mt-10">
+                <fwb-pagination class="product__pagination" v-model="currentPage" :total-pages="2" :show-labels="false"
+                    show-icons></fwb-pagination>
+            </div>
+
         </div>
     </section>
 </template>
@@ -42,7 +56,6 @@ const test = () => {
 .project__grid__box {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 24px;
     grid-row-gap: 40px;
 }
@@ -73,5 +86,39 @@ const test = () => {
 .grid__item:nth-child(8) {
     grid-column-start: 9;
     grid-column-end: 13;
+}
+</style>
+<style>
+.product__pagination div {
+    border: none !important;
+    gap: 16px !important;
+}
+
+.product__pagination button {
+    border-radius: 2px !important;
+    padding: 12px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border: 1.5px solid #C5C9D6;
+    background: #FFF;
+    color: #031D41;
+    font-size:18px;
+    font-weight: 600;
+    line-height: 130%;
+    transition: all linear .6s;
+}
+
+.product__pagination button:hover {
+    border: 1.5px solid #3689FF;
+    background: #3689FF;
+    color: #fff;
+}
+
+.product__pagination button svg {
+    width: 20px !important;
+    height: 20px !important;
 }
 </style>

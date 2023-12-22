@@ -1,16 +1,23 @@
 
 <script setup>
 import BreadCrumb from '@/components/BreadCrumb.vue';
-import { defineProps } from 'vue';
-import {ref} from 'vue';
+import { defineProps, watch } from 'vue';
+import { ref } from 'vue';
 
 const props = defineProps({
     breadData: Array,
 })
 
-const title=ref('');
-props.breadData.forEach(item=>{
-    title.value=item.label
+watch(props.breadData, (newData) => {
+    console.log(`data is ${newData}`)
+}, { deep: true })
+
+const data = ref([]);
+const title = ref('');
+
+data.value = props.breadData;
+data.value.forEach(item => {
+    title.value = item.label
 })
 
 </script>

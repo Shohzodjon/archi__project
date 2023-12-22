@@ -35,7 +35,7 @@ const setThumbsSwiper = (swiper) => {
         
         >
         <SwiperSlide v-for="item in images" :key="item.id">
-            <img :src="item.img_url" alt="thumbs images">
+            <img :src="item.img" alt="thumbs images">
         </SwiperSlide>
     </Swiper>
 
@@ -70,7 +70,7 @@ const setThumbsSwiper = (swiper) => {
           }"
         >
         <SwiperSlide v-for="item in images" :key="item.id">
-            <img :src="item.img_url" alt="thumbs bottom images">
+            <img :src="item.img" alt="thumbs bottom images">
         </SwiperSlide>
     </Swiper>
     <div class="flex w-full items-center justify-center gap-6 mt-10" :class="[props.is_navigation ? 'flex' : 'hidden']">

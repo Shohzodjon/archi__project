@@ -8,7 +8,8 @@ const props = defineProps({
     product_desc: String,
     addition__class: String,
     initial_price: String,
-    slug: String
+    slug: String,
+    refresh: Boolean
 })
 
 </script>
@@ -16,10 +17,12 @@ const props = defineProps({
     <RouterLink :to="props.slug">
         <div class=" w-full md:max-w-[412] max-h-[450px] h-[440px]  relative">
             <img :src="props.img_url" alt="card img" class="w-[80%] h-full sm:h-[80%] mx-auto  " />
-
-            <div class=" card__bottom absolute w-[90%] max-w-[372px] p-2 lg:p-5 left-[50%] -translate-x-1/2 md:translate-x-0 md:left-3 bottom-0 translate-y-8 ">
-                <h4 class="text-xl md:text-[24px] lg:text-[26px] font-bold font-gilroy-bold leading-[33.8px] mb-2 text-grey-900">{{
-                    props.product_title }}
+            <div
+                class=" card__bottom absolute w-[90%] max-w-[372px] p-2 lg:p-5 left-[50%] -translate-x-1/2 md:translate-x-0 md:left-3 bottom-0 translate-y-8 ">
+                <h4
+                    class="text-xl md:text-[24px] lg:text-[26px] font-bold font-gilroy-bold leading-[33.8px] mb-2 text-grey-900">
+                    {{
+                        props.product_title }}
                 </h4>
                 <div class="flex items-center justify-between">
                     <p class="text-[18px] font-medium font-gilroy-medium leading-[27px] text-grey-500"
@@ -42,5 +45,4 @@ const props = defineProps({
 span {
     color: rgba(3, 29, 65, 0.6);
     text-decoration-line: line-through;
-}
-</style>
+}</style>

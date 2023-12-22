@@ -8,17 +8,17 @@ import BuisnessPageOfferSection from '@/sections/BuisnessPageOfferSection.vue';
 import OfferCard from '@/components/OfferCard.vue'
 import img2 from '@/assets/images/section_comp_img2.png'
 import img from '../assets/images/buisness_card_img.png'
-
+import { useAdvantageStore } from '@/stores/advantage';
 //  variables
-import { implementData, buisnessOfferData } from '@/assets/data/json-data';
+import { implementData } from '@/assets/data/json-data';
 
 const data = [
     {
         label: 'Частным лицам',
         url: ''
     }
-]
-
+];
+const advantageStore = useAdvantageStore();
 
 </script>
 <template>
@@ -88,8 +88,8 @@ const data = [
                             Отсутствие инвестиций со стороны заказчика на этапе строительства солнечной генерации.</p>
 
                         <div class="flex gap-8">
-                            <OfferCard v-for="(item, index) in buisnessOfferData" :key="item.id" :img_url="item.img_url"
-                                :card_header="item.card_header" :card_desc="item.card_desc"
+                            <OfferCard v-for="(item, index) in advantageStore.advantage" :key="item.id" :img_url="item.icon"
+                                :card_header="item.title" :card_desc="item.content"
                                 :data-aos="[index == 0 ? 'zoom-in-up' : index == 1 ? 'zoom-in-up' : index == 2 ? 'zoom-in-down' : 'zoom-in-down']"
                                 data-aos-easing="linear" data-aos-duration="900" :data-aos-delay="200 * (index + 1)" />
                         </div>

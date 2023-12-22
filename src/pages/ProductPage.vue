@@ -1,14 +1,20 @@
 
 <script setup>
-import { ref } from 'vue'
+import { ref , onMounted} from 'vue'
 import CategoryComp from '@/components/CategoryComp.vue';
 import SectionHeaderComp from '@/sections/SectionHeaderComp.vue';
 import ProductCard from '@/components/ProductCard.vue';
 import { FwbPagination } from 'flowbite-vue'
-import SmallArrow from '@/assets/icons/SmallArrow.vue';
-//  fake datas
-import { categoryData, productData } from '@/assets/data/json-data';
-// const currentPage=ref(1);
+import {useProductStore} from '@/stores/product'
+
+import { categoryData } from '@/assets/data/json-data';
+
+const productStore=useProductStore();
+
+onMounted(()=>{
+ productStore.fetchAllProducts('products')
+})
+
 const showIcon = ref(true);
 const currentPage = ref(1)
 const data = [
@@ -30,16 +36,15 @@ const warming = () => {
                 <CategoryComp @filter-category="warming" :category="categoryData" />
             </div>
             <div class="grid grid-cols-4 gap-x-6 gap-y-10 mb-10">
-                <div v-for="(item, index)  in productData" :key="item.id" class="h-[545px]">
-                    <ProductCard :img_url="item.img_url"
+                <div v-for="(item, index)  in productStore.products" :key="item.id" class="h-[545px]">
+                    <ProductCard :img_url="item.img"
                         addition__class=" !text-[22px] !text-blue-500 font-bold font-gilroy-bold leading-[150%]"
-                        :product_title="item.product_title" :product_desc="item.product_desc"
-                        :initial_price="item.initial_price" :slug="`/products/:${index}`" />
+                        :product_title="item.title" :product_desc="item.product_desc"
+                        :initial_price="item.initial_price" :slug="`/product/${item.id}`" />
                 </div>
             </div>
             <div class="flex justify-center">
-                <!-- <fwb-pagination  v-model="currentPage" :total-pages="12" large></fwb-pagination> -->
-                <fwb-pagination class="product__pagination" v-model="currentPage" :total-pages="12" :show-labels="false"
+                <fwb-pagination class="product__pagination" v-model="currentPage" :total-pages="productStore.products.count" :show-labels="false"
                     show-icons></fwb-pagination>
             </div>
         </div>

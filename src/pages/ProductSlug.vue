@@ -1,8 +1,8 @@
 
 <script setup>
-import{reactive} from 'vue'
+import { reactive, ref,watch, onMounted } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Navigation, Autoplay, A11y } from 'swiper/modules';
+import { Navigation, Autoplay, A11y, FreeMode, Thumbs } from 'swiper/modules';
 import { useRoute } from 'vue-router';
 import SectionHeaderComp from '@/sections/SectionHeaderComp.vue';
 import SectionHeader from '@/components/SectionHeader.vue';
@@ -11,78 +11,98 @@ import BaseButton from '@/components/BaseButton.vue';
 import TabWrapper from '@/components/TabWrapper.vue';
 import ProductCard from '@/components/ProductCard.vue';
 import SmallArrow from '@/assets/icons/SmallArrow.vue';
-
+import { useProductStore } from '@/stores/product';
+import { thumbsImages } from '@/assets/data/json-data'
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/thumbs';
+import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
 
-import { homeProductData, productTech } from '@/assets/data/json-data';
+import { productTech } from '@/assets/data/json-data';
+const modules = [Navigation, Autoplay, A11y, FreeMode, Thumbs];
 
-const modules = [Navigation, Autoplay, A11y];
-
+const thumbsSwiper = ref(null);
 const route = useRoute();
 const id = route.params.id;
-const data =reactive([
+const productDetailStore = useProductStore();
+
+const data = reactive([
     {
         label: 'Продукты',
-        url: '/products'
+        url: '/product'
     }
 ]);
-    homeProductData.forEach(item => {
-    if (item.id == id.substring(1,2)) {
-        data.push({
-            label: item.product_title,
-            url: ''
-        })
-    }
 
+onMounted(() => {
+    async function step() {
+        await productDetailStore.fetchAllProducts('products');
+        await productDetailStore.fetchAllProductById(id);
+        await productDetailStore.products.forEach(item => {
+            if (item.id == id) {
+                data.push({
+                    label: item.title,
+                    url: ''
+                })
+            }
+        });
+    }
+    step()
 })
 
+watch(data, (newData) => {
+    console.log(`data is ${newData}`)
+},  { deep: true })
+
+const setThumbsSwiper = (swiper) => {
+    thumbsSwiper.value = swiper;
+}
 </script>
 
 <template>
     <section>
 
         <SectionHeaderComp :bread-data="data" />
+
         <div class="pb-[120px] pt-[60px]">
             <div class="container">
                 <div class="flex gap-6 justify-between items-start">
-                    <div class=" flex gap-5">
-                        <ul class="flex flex-col gap-5">
-                            <li class="w-20 h-20 border border-grey-200 rounded"><img
-                                    src="../assets//images/solar_panel2.png" alt="solar panel" class="w-full h-full"></li>
-                            <li class="w-20 h-20 border border-grey-200 rounded"><img
-                                    src="../assets//images/solar_panel3.png" alt="solar panel" class="w-full h-full"></li>
-                            <li class="w-20 h-20 border border-grey-200 rounded"><img
-                                    src="../assets//images/solar_panel2.png" alt="solar panel" class="w-full h-full"></li>
-                            <li class="w-20 h-20 border border-grey-200 rounded"><img
-                                    src="../assets//images/solar_panel3.png" alt="solar panel" class="w-full h-full"></li>
-                        </ul>
-                        <div class="w-[457px] h-[457px] border border-grey-200 rounded">
-                            <img src="../assets/images/solar_panel.png" alt="solar panel" class="w-full">
+                    <div class=" flex gap-5 w-1/3 items-start">
+                        <div>
+                            <Swiper @swiper="setThumbsSwiper" :direction="'vertical'" :spaceBetween="20" :slidesPerView="5"
+                                :freeMode="true" :loop="true" :watchSlidesProgress="true" :modules="modules"
+                                class="h-[457px]">
+                                <SwiperSlide v-for="(img, index) in thumbsImages" :key="index"
+                                    class="w-20 h-20 cursor-pointer">
+                                    <img :src="img.img_url" alt="thumbs bottom images"
+                                        class="w-20 h-20 border border-grey-200 rounded">
+                                </SwiperSlide>
+                            </Swiper>
+                        </div>
+                        <div
+                            class="w-full max-w-[457px] h-[457px] max-h-[457px] border border-grey-200 rounded overflow-hidden">
+                            <Swiper :spaceBetween="10" :thumbs="{ swiper: thumbsSwiper }" :modules="modules"
+                                class="w-full h-full">
+                                <SwiperSlide v-for="(img, index) in thumbsImages" :key="index" class="w-full h-full">
+                                    <img :src="img.img_url" alt="thumbs images"
+                                        class=" w-full h-full max-w-[457px] max-h-[457px] object-obtain">
+                                </SwiperSlide>
+                            </Swiper>
                         </div>
                     </div>
-                    <!--  end of right sidebar -->
-                    <div class="">
-                        <ul class="flex-1 flex flex-col gap-5 max-w-[630px]">
-                            <li class="flex items-center gap-[10px]" v-for="item in productTech" :key="item.id">
-                                <span class="text-grey-500 text-xl leading-[30px] font-medium font-gilroy-medium"
-                                    v-html="item.dteail"></span>
-                                <DashedLine class="flex-1" /> <span
-                                    class="text-grey-900 text-xl leading-[30px] font-bold font-gilroy-bold">{{ item.property
-                                    }}</span>
-                            </li>
 
-                        </ul>
+                    <!--  end of right sidebar -->
+                    <div class="product__spesification flex-1" v-html="productDetailStore.productDetail.specifications">
                     </div>
                     <!--  end of main sidebar -->
                     <div class="flex-1 max-w-[485px] border border-grey-200 rounded p-6">
                         <div class="w-full flex items-center justify-between">
-                            <h4 class="text-blue-500 text-[28px] font-extrabold font-gilroy-bold leading-[42px] ">110 000
-                                000 СУМ
+                            <h4 class="text-blue-500 text-[28px] font-extrabold font-gilroy-bold leading-[42px] ">{{
+                                productDetailStore.productDetail.sale_price }}Sale
                             </h4>
                             <span
-                                class="text-grey-600 text-xl leading-[30px] font-semibold font-gilroy-bold line-through">135
-                                000 000 СУМ</span>
+                                class="text-grey-600 text-xl leading-[30px] font-semibold font-gilroy-bold line-through">{{
+                                    productDetailStore.productDetail.old_price }}</span>
                         </div>
                         <div class="h-[1.5px] bg-grey-200 w-full my-6"></div>
                         <BaseButton :content="$t('btn-content.order')" class="product__slug__button" />
@@ -92,70 +112,15 @@ const data =reactive([
                 </div>
                 <div class="line bg-grey-200 h-[1.5px] w-full max-w-[1211px] my-[50px]"></div>
                 <!--  end of header -->
-
                 <div class="mb-[123px]">
                     <TabWrapper>
                         <template #product-desc>
-                            <h3 class="text-grey-900 text-xl leading-[30px] font-bold font-gilroy-bold">Эффективность</h3>
-
-                            <p class="text-grey-500 text-xl font-medium font-gilroy-medium leading-[150%] ">
-                                Монокристаллическая солнечная панель номинальной мощностью 450 Вт.Эти модели солнечных
-                                систем
-                                обеспечивают высокую энергоэффективность благодаря своей уникальной конструкции. Солнечная
-                                панель
-                                разделена на две части: даже если одна часть панели затенена, другая продолжит работу.</p>
-                            <br>
-                            <h3 class="text-grey-900 text-xl leading-[30px] font-bold font-gilroy-bold">Стабильная гарантия
-                            </h3>
-                            <p class="text-grey-500 text-xl font-medium font-gilroy-medium leading-[150%] ">Представленные
-                                солнечные панели производятся в Армении опытными профессионалами на высочайшем
-                                техническом производстве. Наши солнечные системы имеют международные сертификаты CE, EAC,
-                                IEC,
-                                UL,
-                                PID и проходят соответствующий контроль качества на каждом этапе.SOLARA обеспечивает высокое
-                                качество и бесперебойную работу продукта, предоставляя гарантию на 25 лет.Мы гарантируем
-                                эффективность солнечных панелей на протяжении всего жизненного цикла.</p>
-                            <br>
-                            <h3 class="text-grey-900 text-xl leading-[30px] font-bold font-gilroy-bold">Надежный партнер
-                            </h3>
-                            <p class="text-grey-500 text-xl font-medium font-gilroy-medium leading-[150%] ">
-                                Квалифицированный персонал SOLARA готов выполнить проект любой сложности, в срок и в полном
-                                объеме.
-                            </p>
+                            <div class="product__spesification" v-html="productDetailStore.productDetail.specifications">
+                            </div>
                         </template>
                         <template #product-tech>
-                            <div class="flex items-center gap-[60px]">
-                                <div class="max-w-[576px]">
-                                    <h5 class="text-grey-900 text-2xl font-bold leading-[31.2px] font-gilroy-bold mb-4">Тех.
-                                        описание</h5>
-                                    <ul class="flex-1 flex flex-col gap-[10px] ">
-                                        <li class="flex items-center gap-[10px]" v-for="item in productTech" :key="item.id">
-                                            <span
-                                                class="text-grey-500 text-xl leading-[30px] font-medium font-gilroy-medium"
-                                                v-html="item.dteail"></span>
-                                            <DashedLine class="flex-1" />
-                                            <span class="text-grey-900 text-xl leading-[30px] font-bold font-gilroy-bold">{{
-                                                item.property }}</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="max-w-[576px]">
-                                    <h5 class="text-grey-900 text-2xl font-bold leading-[31.2px] font-gilroy-bold mb-4">
-                                        Способ упаковки</h5>
-                                    <ul class="flex-1 flex flex-col gap-[10px] max-w-[576px]">
-                                        <li class="flex items-center gap-[10px]" v-for="item in productTech" :key="item.id">
-                                            <span
-                                                class="text-grey-500 text-xl leading-[30px] font-medium font-gilroy-medium"
-                                                v-html="item.dteail"></span>
-                                            <DashedLine class="flex-1" /> <span
-                                                class="text-grey-900 text-xl leading-[30px] font-bold font-gilroy-bold">{{
-                                                    item.property }}</span>
-                                        </li>
-                                    </ul>
-                                </div>
-
+                            <div class="product__spesification" v-html="productDetailStore.productDetail.specifications">
                             </div>
-
                         </template>
                     </TabWrapper>
                 </div>
@@ -166,10 +131,10 @@ const data =reactive([
                             nextEl: '.swiper-next',
                             prevEl: '.swiper-prev',
                         }">
-                        <swiper-slide v-for="(item, index)  in homeProductData" :key="item.id">
+                        <swiper-slide v-for="item in productDetailStore.products" :key="item.id">
                             <div class="h-[545px]">
-                                <ProductCard class="w-full" :img_url="item.img_url" :product_title="item.product_title"
-                                    :slug="`/product/:${index}`" />
+                                <ProductCard class="w-full" :img_url="item.img" :product_title="item.title"
+                                    :slug="`/product/${item.id}`" :refresh="true" />
                             </div>
                         </swiper-slide>
                     </swiper>
@@ -216,4 +181,43 @@ const data =reactive([
 
 .product__slug__button2 span {
     color: #3689FF;
-}</style>
+
+}
+
+.product__spesification ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 4px;
+}
+
+.product__spesification ul li {
+    color: #536681;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.product__spesification ul li span {
+    color: #031D41;
+    text-align: right;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 150%;
+    margin-left: 10px;
+    display: inline-block;
+
+}
+
+.product__spesification .line-dots {
+    display: block;
+    flex: 1;
+    border: 1.5px dashed #C5C9D6;
+    width: 100%;
+
+}
+</style>

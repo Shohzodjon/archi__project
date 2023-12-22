@@ -18,24 +18,24 @@ import PartnerCard from '@/components/PartnerCard.vue';
 import SliderThumbs from '@/components/SliderThumbs.vue';
 import city from "@/assets/images/city.png";
 //  fake datas
-import {   homeProjectData,  partnerData, thumbsImages } from '@/assets/data/json-data'
+import { homeProjectData, partnerData, thumbsImages } from '@/assets/data/json-data'
 //  styles 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { useProductStore } from '@/stores/product'
 import { useAdvantageStore } from '@/stores/advantage';
 import { useStatisticStore } from '@/stores/statistic';
-import {useNewsStore} from '@/stores/news'
-import {usePartnerStore} from '@/stores/partner'
+import { useNewsStore } from '@/stores/news'
+import { usePartnerStore } from '@/stores/partner'
 
 //  variables
 const modules = [Navigation, Autoplay, A11y];
 const offerData = ref(null);
 const productStore = useProductStore();
 const advantageStore = useAdvantageStore();
-const statisticStore=useStatisticStore();
-const newsStore=useNewsStore();
-const partnerStore=usePartnerStore();
+const statisticStore = useStatisticStore();
+const newsStore = useNewsStore();
+const partnerStore = usePartnerStore();
 
 //  functions
 onMounted(() => {
@@ -47,7 +47,8 @@ onMounted(() => {
     productStore.fetchProductData('guarantee');
     advantageStore.fetchAdvantageData('advantages');
     statisticStore.fetchStatisticData('statistic');
-    newsStore.fetchNewsData('slider');
+    newsStore.fetchNewsData('news');
+    newsStore.fetchSlidesData('slides')
     partnerStore.fetchPartnerData('partners');
 })
 
@@ -60,17 +61,22 @@ const onSubmit = () => {
     <section>
         <header class="pt-32 md:pt-[170px] lg:pt-[220px] xl:pt-[300px]">
             <div class="container">
-                <div class=" relative flex flex-col lg:flex-row gap-4 md:gap-4 justify-between">
-                    <div class="mt-[30px]">
-                        <h2
-                            class="text-white-900 text-3xl md:text-4xl lg:text-[50px] lg:leading-[65px] text-center md:text-left  font-bold font-gilroy-bold max-w-[760px] mb-2 md:mb-3">
-                            Солнечные электростанции
-                            под ключ</h2>
-                        <p
-                            class="md:max-w-[500px] text-white-900 text-base md:text-[18px] text-center md:text-left font-medium font-gilroy-medium md:leading-[27px] mb-4 md:mb-8">
-                            Group pants for corporate interim ourselves invite.
-                            Crystallize right beef join Activities slipstream shower
-                            one socialize back-end cost time eow comes.</p>
+                <div class=" relative flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-20 xl:gap-[169px] justify-between">
+                    <div class="mt-[30px] w-full lg:w-1/2 xl:flex-1">
+                        <swiper :slides-per-view="1" :modules="modules" :loop="true" :autoplay="{ delay: 3500 }">
+                            <swiper-slide v-for="item  in productStore.guaranteeProducts" :key="item.id">
+                                <h2
+                                    class="text-white-900 text-3xl md:text-4xl lg:text-[50px] lg:leading-[65px] text-center md:text-left  font-bold font-gilroy-bold  mb-2 md:mb-3">
+                                    Солнечные электростанции под ключ
+                                </h2>
+                                <p
+                                    class="md:max-w-[500px] text-white-900 text-base md:text-[18px] text-center md:text-left font-medium font-gilroy-medium md:leading-[27px] mb-4 md:mb-8">
+                                    Group pants for corporate interim ourselves invite.
+                                    Crystallize right beef join Activities slipstream shower
+                                    one socialize back-end cost time eow comes.</p>
+                            </swiper-slide>
+                        </swiper>
+
                         <BaseButton :content="$t('btn-content.more_detail')"
                             class="home__submit__btn text-white-900 px-5 w-full justify-center  md:w-[max-content] md:px-[38px]">
                             <Arrow />
@@ -109,9 +115,9 @@ const onSubmit = () => {
                 <div class="pt-[313px] relative">
                     <div
                         class="grid grid-cols-2 md:flex w-full  bg-white-900 p-6 gap-6 rounded absolute left-0 -top-[50px] md:top-[-20px] lg:-top-[60px] ">
-                        <ResultCard v-for="(item, index) in statisticStore.statistic" :key="item.id" :result_content="item.title"
-                            :result_category="item.content" data-aos="fade-right" data-aos-easing="linear"
-                            data-aos-duration="900" :data-aos-delay="200 * (index + 1)" />
+                        <ResultCard v-for="(item, index) in statisticStore.statistic" :key="item.id"
+                            :result_content="item.title" :result_category="item.content" data-aos="fade-right"
+                            data-aos-easing="linear" data-aos-duration="900" :data-aos-delay="200 * (index + 1)" />
                     </div>
                     <SectionHeader header__content="Что мы предлагаем"
                         header__desc="Мы предлагаем высококачественную продукцию, качественный сервис и 25 летнюю гарантию на солнечные электростанции"
@@ -246,9 +252,9 @@ const onSubmit = () => {
         spaceBetween: 10,
     }
 }">
-                        <swiper-slide v-for="item in productStore.guaranteeProducts.data" :key="item.id">
-                            <div class="h-[545px] xl:h-[480px]">
-                                <ProductCard class="w-full" :img_url="item.url" :product_title="item.title"
+                        <swiper-slide v-for="item in productStore.guaranteeProducts" :key="item.id">
+                            <div class="h-[545px] xl:h-[480px] ">
+                                <ProductCard class="w-full !bg-white-900" :img_url="item.url" :product_title="item.title"
                                     :slug="`/product/:${item.id}`" />
                             </div>
 
@@ -375,7 +381,7 @@ const onSubmit = () => {
     }
 }">
                         <swiper-slide v-for="(item, index) in newsStore.news" :key="item.id">
-                            <NewsCard :img_url="item.img" :news_date="item.news_date" :news_title="item.title"
+                            <NewsCard :img_url="item.img" :news_date="item.created_on" :news_title="item.title"
                                 :news_desc="item.content" :slug="`/blog/:${item.id}`" />
 
                         </swiper-slide>
@@ -432,7 +438,7 @@ const onSubmit = () => {
     }
 }">
                         <swiper-slide v-for="item in partnerStore.partner" :key="item.id">
-                            <PartnerCard :img_url="item.img" :url="item.url"/>
+                            <PartnerCard :img_url="item.img" :url="item.url" />
                         </swiper-slide>
                     </swiper>
                     <div class="flex w-full items-center justify-center gap-6 mt-10">
