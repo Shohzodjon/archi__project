@@ -10,10 +10,7 @@ const props = defineProps({
     main_card_desc: String,
     main_small_img: String,
     route_url: String
-})
-
-
-console.log(props.main_card_img, 'props image')
+});
 </script>
 <template>
     <div class=" main__card relative max-w-[848px] max-h-[650px] w-full rounded overflow-hidden">

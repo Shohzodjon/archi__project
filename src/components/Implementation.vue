@@ -26,7 +26,7 @@ const props = defineProps({
       {{ props.proccess_desc }}
     </p>
     <span
-      class="w-[40px] h-[34px] lg:w-[40px] lg:h-[40px] block bg-white-900 absolute -bottom-4 right-1/2 translate-x-1/2 lg:top-1/2 lg:-right-0 xl:right-[2px] lg:-translate-y-1/2 rotate-45 rounded"
+      class="w-[40px] h-[34px] lg:w-[40px] lg:h-[40px] block bg-white-900 absolute -bottom-[13px] right-1/2 translate-x-1/2 lg:top-1/2 lg:right-[2px] xl:right-[2px] lg:-translate-y-1/2 rotate-45 rounded"
       :class="[props.last_position ? 'hidden' : '']"
     ></span>
   </div>

@@ -1,26 +1,26 @@
 
 <script setup>
-import { onMounted,ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import CategoryComp from '@/components/CategoryComp.vue';
 import SectionHeaderComp from '@/sections/SectionHeaderComp.vue';
 import ProjectCard from '@/components/ProjectCard.vue'
 import { FwbPagination } from 'flowbite-vue'
 //  fake datas
 import { projectCategory } from '@/assets/data/json-data'
-import {useProjectStore} from '@/stores/project';
+import { useProjectStore } from '@/stores/project';
 
-const projectStore=useProjectStore();
+const projectStore = useProjectStore();
 const currentPage = ref(1);
 
 
-onMounted(()=>{
-   projectStore.fetchProjectData('projects');
+onMounted(() => {
+    projectStore.fetchProjectData('projects');
 })
 
-const data=[
+const data = [
     {
-        label:'Проекты',
-        url:''
+        label: 'Проекты',
+        url: ''
     }
 ]
 const test = () => {
@@ -29,10 +29,10 @@ const test = () => {
 </script>
 
 <template>
-    <section class=" pb-[120px]">
-        <SectionHeaderComp  :bread-data="data"/>
+    <section class="pb-10 md:pb-14 lg:pb-16 xl:pb-[120px]">
+        <SectionHeaderComp :bread-data="data" />
         <div class="container">
-            <div class="mt-[60px] mb-10">
+            <div class="mt-8 md:mt-10 lg:mt-14 xl:mt-[60px] mb-6  lg:mb-8 xl:mb-10">
                 <CategoryComp :category="projectCategory" @filter-category="test" />
 
             </div>
@@ -87,6 +87,41 @@ const test = () => {
     grid-column-start: 9;
     grid-column-end: 13;
 }
+
+@media screen and (min-width:350px) and (max-width:768px) {
+
+    .grid__item:nth-child(1),
+    .grid__item:nth-child(2),
+    .grid__item:nth-child(3),
+    .grid__item:nth-child(4),
+    .grid__item:nth-child(5),
+    .grid__item:nth-child(6),
+    .grid__item:nth-child(7),
+    .grid__item:nth-child(8) {
+        grid-column-start: 1;
+        grid-column-end: 13;
+    }
+}
+
+@media screen and (min-width:769px) and (max-width:1024px) {
+
+    .grid__item:nth-child(1),
+    .grid__item:nth-child(3),
+    .grid__item:nth-child(5),
+    .grid__item:nth-child(7) {
+        grid-column-start: 1;
+        grid-column-end: 7;
+    }
+
+    .grid__item:nth-child(2),
+    .grid__item:nth-child(4),
+    .grid__item:nth-child(6),
+    .grid__item:nth-child(8) {
+        grid-column-start: 7;
+        grid-column-end: 13;
+    }
+
+}
 </style>
 <style>
 .product__pagination div {
@@ -105,7 +140,7 @@ const test = () => {
     border: 1.5px solid #C5C9D6;
     background: #FFF;
     color: #031D41;
-    font-size:18px;
+    font-size: 18px;
     font-weight: 600;
     line-height: 130%;
     transition: all linear .6s;
@@ -120,5 +155,4 @@ const test = () => {
 .product__pagination button svg {
     width: 20px !important;
     height: 20px !important;
-}
-</style>
+}</style>

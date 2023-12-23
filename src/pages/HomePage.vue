@@ -257,13 +257,13 @@ const onSubmit = () => {
             </swiper-slide>
           </swiper>
           <button
-            class="home__slider__btn swiper-prev cursor-pointer absolute top-[50%] -translate-y-1/2 z-[99] left-0 w-[60px] h-[60px] rounded-sm flex items-center justify-center"
+            class="home__slider__btn swiper-prev cursor-pointer absolute top-[50%] -translate-y-1/2 z-[99] left-0 3xl:-left-6 w-[60px] h-[60px] rounded-sm flex items-center justify-center"
             aria-label="button"
           >
             <SmallArrow />
           </button>
           <button
-            class="home__slider__btn swiper-next cursor-pointer absolute top-[50%] -translate-y-1/2 z-[99] right-0 w-[60px] h-[60px] rounded-sm flex items-center justify-center"
+            class="home__slider__btn swiper-next cursor-pointer absolute top-[50%] -translate-y-1/2 z-[99] right-0 3xl:-right-6 w-[60px] h-[60px] rounded-sm flex items-center justify-center"
             aria-label="button"
           >
             <SmallArrow class="rotate-180" />
@@ -292,7 +292,7 @@ const onSubmit = () => {
           header__desc="Солнечные решения от компании Archi Holding - это гарантия качества и эффективности."
         />
         <div
-          class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:grid-cols-2 md:max-w-[90%] lg:max-w-full mx-auto lg:flex lg:gap-2 xl:gap-2 2xl:gap-6 mt-[90px]"
+          class="grid grid-cols-1  sm:grid-cols-2 gap-y-4 gap-x-3 md:grid-cols-2 md:gap-x-3 md:max-w-[90%]  lg:max-w-full mx-auto lg:flex lg:gap-2 xl:gap-2 2xl:gap-6 mt-[90px]"
         >
           <OfferCard
             v-for="(item, index) in advantageStore.advantage"
@@ -375,13 +375,13 @@ const onSubmit = () => {
             </swiper-slide>
           </swiper>
           <button
-            class="home__slider__btn swiper-prev cursor-pointer absolute top-[50%] -translate-y-1/2 z-[99] left-0 2xl:-left-2 w-[60px] h-[60px] rounded-sm flex items-center justify-center"
+            class="home__slider__btn swiper-prev cursor-pointer absolute top-[50%] -translate-y-1/2 z-[99] left-0 2xl:-left-2 3xl:-left-6 w-[60px] h-[60px] rounded-sm flex items-center justify-center"
             aria-label="button"
           >
             <SmallArrow />
           </button>
           <button
-            class="home__slider__btn swiper-next cursor-pointer absolute top-[50%] -translate-y-1/2 z-[99] right-0 2xl:-right-1 w-[60px] h-[60px] rounded-sm flex items-center justify-center"
+            class="home__slider__btn swiper-next cursor-pointer absolute top-[50%] -translate-y-1/2 z-[99] right-0 2xl:-right-1 3xl:-right-6 w-[60px] h-[60px] rounded-sm flex items-center justify-center"
             aria-label="button"
           >
             <SmallArrow class="rotate-180" />

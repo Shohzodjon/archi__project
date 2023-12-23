@@ -12,6 +12,8 @@ import Arrow from "../assets/icons/Arrow.vue";
 import Menu from "@/assets/icons/Menu.vue";
 import Close from "@/assets/icons/Close.vue";
 let currentLang = localStorage.getItem("locale") || "uz";
+
+
 const menuData = ref(null)
 onMounted(() => {
   fetch('https://admin.archi.uz/api/menu')
@@ -19,7 +21,6 @@ onMounted(() => {
     .then(data => menuData.value = data.data)
     .catch(error => console.error('Error:', error));
 })
-
 
 const route = useRoute();
 const changeLang = (e) => {
@@ -91,7 +92,7 @@ const toggleFunc = () => {
           <!-- end contact -->
           <ul class="flex items-center gap-2">
             <li @click="changeLang" lang="ru"
-              class="opacity-80 text-white-900 text-base lg:text-[18px] font-gilroy-medium font-medium leading-normal cursor-pointer px-2 py-[2px] border border-white-900 rounded-sm lang__link ">
+              class="opacity-80 text-white-900 text-base lg:text-[18px] font-gilroy-medium font-medium leading-normal cursor-pointer px-2 py-[2px] rounded-sm lang__link ">
               Ru
             </li>
             <li>

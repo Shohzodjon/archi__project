@@ -1,3 +1,4 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
 export default {
   content: [
     "./index.html",
@@ -27,6 +28,10 @@ export default {
       "gilroy-regular": "'Gilroy-Regular', sans-serif",
       "gilroy-medium": "'Gilroy-Medium', sans-serif",
       "gilroy-ligth": "'Gilroy-Light', sans-serif",
+    },
+    screens: {
+      ...defaultTheme.screens,
+     '3xl': {'min': '1720px'},
     },
   },
   plugins: [require("flowbite/plugin")],

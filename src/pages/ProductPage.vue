@@ -32,13 +32,13 @@ const warming = () => {
     <section class="pb-[120px]">
         <SectionHeaderComp :bread-data="data" />
         <div class="container">
-            <div class="pt-[60px] pb-10">
+            <div class="pt-8 md:pt-10 lg:pt-16 xl:pt-[60px] pb-4 md:pb-6 lg:pb-8 xl:pb-10">
                 <CategoryComp @filter-category="warming" :category="categoryData" />
             </div>
-            <div class="grid grid-cols-4 gap-x-6 gap-y-10 mb-10">
-                <div v-for="(item, index)  in productStore.products" :key="item.id" class="h-[545px]">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  xl:grid-cols-4 gap-x-2 gap-y-2 md:gap-y-4 xl:gap-x-6 xl:gap-y-10 mb-10">
+                <div v-for="(item, index)  in productStore.products" :key="item.id" class="h-[545px] ">
                     <ProductCard :img_url="item.img"
-                        addition__class=" !text-[22px] !text-blue-500 font-bold font-gilroy-bold leading-[150%]"
+                        addition__class=" !text-[22px] !text-blue-500 font-bold font-gilroy-bold leading-[150%] "
                         :product_title="item.title" :product_desc="item.product_desc"
                         :initial_price="item.initial_price" :slug="`/product/${item.id}`" />
                 </div>

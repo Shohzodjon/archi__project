@@ -12,7 +12,7 @@ import Facebook from "../assets/icons/Facebook.vue";
 import Instagram from "../assets/icons/Instagram.vue";
 </script>
 <template>
-    <footer class="bg-blue-900 pt-8 md:pt-10 lg:pt-[60px] pb-5">
+    <footer class="bg-blue-900 pt-8 md:pt-10 lg:pt-[60px] pb-5 ">
         <div class="container">
             <div class="flex flex-col items-center md:items-start md:flex-row md:flex-wrap md:justify-between gap-2 md:gap-4">
                 <ul class="">
@@ -100,7 +100,7 @@ import Instagram from "../assets/icons/Instagram.vue";
 
                 <div class="flex flex-col lg:flex-row md:items-center gap-2 xl:gap-6">
                     <input type="email" required placeholder="Электронной почты"
-                        class="footer__input w-full md:w-[350px] lg:w-[400px] xl:w-[500px] rounded py-2 md:py-2 lg:py-3 2xl:py-4 pl-3 md:pl-5  text-base md:text-[18px] text-white-900 font-medium placeholder:text-white-900" />
+                        class="footer__input w-full lg:w-[400px] xl:w-[500px] rounded py-2 md:py-2 lg:py-3 2xl:py-4 pl-3 md:pl-5  text-base md:text-[18px] text-white-900 font-medium placeholder:text-white-900" />
                     <BaseButton class="footer__btn md:px-11 text-white-900 text-[18px] font-semibold justify-center md:w-full lg:w-[max-content]"
                         :content="$t('btn-content.subscribe-news')">
                         <Arrow />

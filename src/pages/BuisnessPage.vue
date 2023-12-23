@@ -64,7 +64,7 @@ const data = [
         </div>
         <!-- end of first card -->
         <div
-          class="bg-green-800 rounded-lg py-8 lg:py-[60px] px-10 lg:px-5 mt-20"
+          class="bg-green-800 rounded-lg py-8 lg:py-[60px] px-10 lg:px-5 mt-8 md:mt-10 lg:mt-16 xl:mt-20"
         >
           <h2
             class="text-white-900 text-3xl md:text-4xl lg:text-[40px] font-bold font-gilroy-bold text-center lg:leading-[52px] mb-7 md:mb-10 xl:mb-[52px]"
@@ -79,7 +79,7 @@ const data = [
             строительства солнечной генерации.
           </p>
           <div
-            class="flex flex-col items-center md:grid md:grid-cols-2 lg:flex lg:flex-row lg:items-stretch gap-10 lg:gap-5 xl:gap-10"
+            class="flex flex-col items-center md:grid md:grid-cols-2 md:!place-items-stretch lg:flex lg:flex-row lg:items-stretch gap-8 lg:gap-5 xl:gap-8"
           >
             <Implementation
               v-for="(item, index) in implementData"
@@ -91,6 +91,7 @@ const data = [
               data-aos="fade-down"
               data-aos-easing="linear"
               data-aos-duration="900"
+              
               :data-aos-delay="350 * (index + 1)"
             />
           </div>

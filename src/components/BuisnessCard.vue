@@ -11,7 +11,7 @@ const props = defineProps({
 
 <template>
   <div
-    class="biusness__card h-[500px] md:h-[600px] max-w-[840px] relative p-5 md:p-10 lg:p-5 xl:p-10 rounded-lg overflow-hidden"
+    class="biusness__card h-[550px] md:h-[600px] max-w-[840px] relative p-5 md:p-10 lg:p-5 xl:p-10 rounded-lg overflow-hidden"
   >
     <div>
       <h3
