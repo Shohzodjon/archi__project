@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, } from 'vue';
 import { RouterLink, useRoute } from "vue-router";
 import Telegram from "../assets/icons/Telegram.vue";
 import Facebook from "../assets/icons/Facebook.vue";
@@ -13,17 +13,19 @@ import Menu from "@/assets/icons/Menu.vue";
 import Close from "@/assets/icons/Close.vue";
 let currentLang = localStorage.getItem("locale") || "uz";
 
+const route = useRoute();
+const menuData = ref(null);
 
-const menuData = ref(null)
 onMounted(() => {
   fetch('https://admin.archi.uz/api/menu')
     .then(response => response.json())
     .then(data => menuData.value = data.data)
-    .catch(error => console.error('Error:', error));
+    .catch(error => console.log('Error:', error));
 })
 
-const route = useRoute();
+
 const changeLang = (e) => {
+
   if (currentLang !== e.target.lang) {
     currentLang = e.target.lang;
     localStorage.setItem("locale", e.target.lang);
@@ -122,8 +124,9 @@ const toggleFunc = () => {
           </RouterLink>
           <!-- begin router links  -->
           <ul class="hidden lg:flex items-center gap-5 xl:gap-10">
+
             <li v-for="menu in menuData" :key="menu.id">
-              <RouterLink :to="'/' + menu.url"
+              <RouterLink :to="`/${currentLang}/${menu.url}`"
                 class="text-white-900 text-base xl:text-[18px] leading-[23.4px] font-medium font-gilroy-medium">
                 {{ menu.title }}</RouterLink>
             </li>
@@ -147,7 +150,7 @@ const toggleFunc = () => {
     @click="toggleFunc" :class="[show ? 'active__responsive' : 'unactive__responsive']">
     <ul class="bg-white-900 pt-20 pb-6 pl-6 pr-4 flex flex-col gap-2 w-60 relative">
       <li v-for="menu in menuData" :key="menu.id">
-        <RouterLink :to="'/'+menu.url"
+        <RouterLink :to="`/${currentLang}/${menu.url}`"
           class="text-blue-500 text-base xl:text-[18px] leading-[23.4px] font-medium font-gilroy-medium responsive__link">
           {{ menu.title }}</RouterLink>
       </li>

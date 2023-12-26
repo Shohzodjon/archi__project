@@ -10,6 +10,8 @@ import Arrow from "../assets/icons/Arrow.vue";
 import Telegram from "../assets/icons/Telegram.vue";
 import Facebook from "../assets/icons/Facebook.vue";
 import Instagram from "../assets/icons/Instagram.vue";
+
+let currentLang = localStorage.getItem("locale") || "uz";
 </script>
 <template>
     <footer class="bg-blue-900 pt-8 md:pt-10 lg:pt-[60px] pb-5 ">
@@ -31,39 +33,39 @@ import Instagram from "../assets/icons/Instagram.vue";
                     <li class="md:mb-2"><span
                             class=" text-[#BBD0EF] uppercase text-sm md:text-base leading-[20.8px] font-semibold block w-full text-center md:text-left">{{$t('router-link.sections')}}</span></li>
                     <li>
-                        <RouterLink to="/business" class="text-base md:text-[18px]  text-white-900 font-medium leading-[23.4px] block w-full text-center md:text-left">
+                        <RouterLink :to="`/${currentLang}/business`" class="text-base md:text-[18px]  text-white-900 font-medium leading-[23.4px] block w-full text-center md:text-left">
                             {{ $t('router-link.buisnesss') }}
                         </RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="/individuals" class="text-base md:text-[18px] text-white-900 font-medium leading-[23.4px] block w-full text-center md:text-left">
+                        <RouterLink :to="`/${currentLang}/individuals`" class="text-base md:text-[18px] text-white-900 font-medium leading-[23.4px] block w-full text-center md:text-left">
                             {{ $t('router-link.individual') }}
                         </RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="/product" class="text-base md:text-[18px] text-white-900 font-medium leading-[23.4px] block w-full text-center md:text-left">{{
+                        <RouterLink :to="`/${currentLang}/product`" class="text-base md:text-[18px] text-white-900 font-medium leading-[23.4px] block w-full text-center md:text-left">{{
                             $t('router-link.product') }}
                         </RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="/project" class="text-base md:text-[18px] text-white-900 font-medium leading-[23.4px] block w-full text-center md:text-left">{{
+                        <RouterLink :to="`/${currentLang}/project`" class="text-base md:text-[18px] text-white-900 font-medium leading-[23.4px] block w-full text-center md:text-left">{{
                             $t('router-link.project') }}
                         </RouterLink>
                     </li>
                 </ul>
                 <!-- end of rasdeli list -->
                 <ul class=" flex flex-col md:flex-col gap-1 md:gap-4 md:mt-[45px]">
-                    <li>
-                        <RouterLink to="/blog" class="text-base md:text-[18px] text-white-900 font-medium leading-[23.4px] block w-full text-center md:text-left">{{
+                    <!-- <li>
+                        <RouterLink :to="`/${currentLang}/blog`" class="text-base md:text-[18px] text-white-900 font-medium leading-[23.4px] block w-full text-center md:text-left">{{
                             $t('router-link.blog') }}</RouterLink>
-                    </li>
+                    </li> -->
                     <li>
-                        <RouterLink to="/company" class="text-base md:text-[18px] text-white-900 font-medium leading-[23.4px] block w-full text-center md:text-left">{{
+                        <RouterLink :to="`/${currentLang}/company`" class="text-base md:text-[18px] text-white-900 font-medium leading-[23.4px] block w-full text-center md:text-left">{{
                             $t('router-link.about') }}
                         </RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="/contact" class="text-base md:text-[18px] text-white-900 font-medium leading-[23.4px] block w-full text-center md:text-left">{{
+                        <RouterLink :to="`/${currentLang}/contact`" class="text-base md:text-[18px] text-white-900 font-medium leading-[23.4px] block w-full text-center md:text-left">{{
                             $t('router-link.contact') }}
                         </RouterLink>
                     </li>
@@ -81,7 +83,7 @@ import Instagram from "../assets/icons/Instagram.vue";
                             <Envelop /> <span
                                 class="text-base md:text-[18px] text-white-900 font-meduim leading-[27px]">archiholding@info.uz</span>
                         </a></li>
-                    <RouterLink to="/contact" class="flex items-center gap-[12px] justify-center md:justify-start">
+                    <RouterLink :to="`/${currentLang}/contact`" class="flex items-center gap-[12px] justify-center md:justify-start">
                         <Location /> <span class="text-base md:text-[18px] text-white-900 font-meduim leading-[27px]">Ташкент,
                             Мирабадский район 
                             Фаргона Йули 222/5</span>
